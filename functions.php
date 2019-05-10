@@ -1,13 +1,13 @@
 <?php
 
 // Function used to connect to the database.
-function connexion () 
+function connexion ()
 {
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$BDD = "mysql:host=$servername;dbname=baseeco3";
-	try 
+	$BDD = "mysql:host=$servername;dbname=projet";
+	try
 	{
 	    $conn = new PDO($BDD, $username, $password);
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,5 +18,7 @@ function connexion ()
 	    echo "Connection failed: " . $e->getMessage();
 	}
 }
+
+
 
 ?>
