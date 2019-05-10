@@ -18,33 +18,23 @@
 					Sujet :
 				</td>
 				<td>
-					<input type="text" Sujet="type_actionneur" maxlength="500" required /><br />
+					<input type="text" Sujet="Sujet" maxlength="100" required /><br />
 				</td>
-			</tr>
 
-
-			<tr>
 				<td>
-					Dans la zone :
+					Votre demande :
 				</td>
 				<td>
-					<SELECT name="zone">
-						<?php
-							while ($array = $listZone->fetch(PDO::FETCH_ASSOC))
-							{
-							?>
-								<OPTION value="<?php echo $array["id_zone"]; ?>"><?php echo $array["nom"]; ?></OPTION>
-							<?php
-							}
-						?>
-					</SELECT>
+					<input type="text" Sujet="votre demande" maxlength="500" required /><br />
+				</td>
+
 				</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<input type="hidden" name="checkForm" value="votre demande">
-					<input type="submit" value="Envoyer la demande">
+					<input type="hidden" name="checkForm" value="votre demande aux prof">
+					<input type="submit" value="Envoyer la demande aux prof">
 				</td>
 			</tr>
 		</table>
