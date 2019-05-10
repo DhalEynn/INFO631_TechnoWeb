@@ -42,7 +42,7 @@ $conn = connexion();
       echo "<li><a href=\"?page=1\" class=\"btn_menu $encours[1]\">Consultation</a></li>\n";
       echo "<li><a href=\"?page=2\" class=\"btn_menu $encours[2]\">Capteurs</a></li> \n";
       echo "<li><a href=\"?page=3\" class=\"btn_menu $encours[3]\">Actionneurs</a></li> \n";
-      echo "<li><a href=\"?page=4\" class=\"btn_menu $encours[4]\">Mesures</a></li> \n";
+      echo "<li><a href=\"?page=signup\" class=\"btn_menu $encours[4]\">signup</a></li> \n";
       ?>
       </ul>
     </div>
