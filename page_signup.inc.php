@@ -19,12 +19,29 @@
 			</tr>
 			<tr>
 				<td>
+					<input type="radio" id="etudiant" name="fonction" value="etudiant" checked />
+					<label for="etudiant">Etudiant</label>
+				</td>
+				<td>
+					<input type="radio" id="professeur" name="fonction" value="professeur" />
+					<label for="professeur">Professeur</label>
+				</td>
+				<td>
+					<input type="radio" id="ST" name="fonction" value="ST" />
+					<label for="ST">Service technique</label>
+				</td>
+			</tr>
+			<!--
+			<tr>
+				<td>
 					mot de passe : 
 				</td>
+			
 				<td>
 					<input type="passeword" name="mot_de_passe" maxlength="50" /><br />
 				</td>
 			</tr>
+			-->
 			<tr>
 				<td></td>
 				<td>
