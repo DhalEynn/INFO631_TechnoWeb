@@ -11,4 +11,7 @@
   </ul>
   </p>";
 
+  echo "<a href=\"?page=signup\">Sign Up</a>
+  <a href=\"?page=login\">Login</a>"
+
 ?>
