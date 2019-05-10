@@ -20,6 +20,7 @@
 				<td>
 					<input type="text" Sujet="Sujet" maxlength="100" required /><br />
 				</td>
+<<<<<<< HEAD
 
 				<td>
 					Votre demande :
@@ -28,6 +29,8 @@
 					<input type="text" Sujet="votre demande" maxlength="500" required /><br />
 				</td>
 
+=======
+>>>>>>> fbbe41d4e6bbdac89bfdf98d9c3f0fc95523dbd3
 				</td>
 			</tr>
 			<tr>

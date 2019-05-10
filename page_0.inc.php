@@ -4,10 +4,10 @@
 
   echo "<p>Cette interface vous permettra de:
   <ul>
-  <li> <a href=\"?page=1\">Creation</a> les informations sur une zone géographique,
-  <li> <a href=\"?page=3\">Modification</a> de nouveaux actionneurs,</li>
-  <li> <a href=\"?page=2\">Validation</a> les données concernant les capteurs,</li>
-  <li> <a href=\"?page=4\">Consultation</a> les mesures.</li> 
+  <li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel,
+  <li> <a href=\"?page=3\">Modifier</a> une demande déjà créée,</li>
+  <li> <a href=\"?page=2\">Valider</a> une demande acceptée par un professeur,</li>
+  <li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
   </ul>
   </p>";
 
