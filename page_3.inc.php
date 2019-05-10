@@ -20,24 +20,6 @@
 				<td>
 					<input type="text" Sujet="type_actionneur" maxlength="500" required /><br />
 				</td>
-			</tr>
-
-
-			<tr>
-				<td>
-					Dans la zone :
-				</td>
-				<td>
-					<SELECT name="zone">
-						<?php
-							while ($array = $listZone->fetch(PDO::FETCH_ASSOC))
-							{
-							?>
-								<OPTION value="<?php echo $array["id_zone"]; ?>"><?php echo $array["nom"]; ?></OPTION>
-							<?php
-							}
-						?>
-					</SELECT>
 				</td>
 			</tr>
 			<tr>
