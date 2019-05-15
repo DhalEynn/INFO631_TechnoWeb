@@ -9,9 +9,9 @@ if (!isset($_SESSION))
 
 if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION["mail"]))
 {
-  $_SESSION["travail"] = null;
-  $_SESSION["nom"] = null;
-  $_SESSION["mail"] = null;
+  $_SESSION["travail"] = NULL;
+  $_SESSION["nom"] = NULL;
+  $_SESSION["mail"] = NULL;
 }
 
 // Connect to the database

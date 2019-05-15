@@ -7,6 +7,7 @@
 
 <form method="post" action="projet.php?page=3">
 	<p>
+		Bonjour <?php echo $_SESSION["nom"]; ?>, quelle est votre demande : </br>
 		<table>
 			<tr>
 				<td>
