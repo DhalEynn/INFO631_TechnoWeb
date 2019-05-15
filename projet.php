@@ -45,7 +45,7 @@ $conn = connexion();
 
       if(!isset($_GET["page"]) || is_null($_SESSION["mail"]))
       {
-        $page = 0;
+        $page = signup;
       }
       else
       {
