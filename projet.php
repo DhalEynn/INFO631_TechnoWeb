@@ -41,7 +41,7 @@ $conn = connexion();
     <div id="menu">
       <ul id="lemenu">
       <?php
-      $encours = array(" "," "," "," "," "," ");
+      $encours = array(" "," "," "," "," ");
 
       if(!isset($_GET["page"]))
       {
@@ -61,7 +61,6 @@ $conn = connexion();
         echo "<li><a href=\"?page=2\" class=\"btn_menu $encours[2]\">Modification</a></li> \n";
         echo "<li><a href=\"?page=3\" class=\"btn_menu $encours[3]\">Validation</a></li> \n";
         echo "<li><a href=\"?page=4\" class=\"btn_menu $encours[4]\">Consultation</a></li> \n";
-        echo "<li><a href=\"?page=signup\" class=\"btn_menu $encours[5]\">Signup</a></li> \n";
       }
       else
       {
@@ -69,7 +68,6 @@ $conn = connexion();
         echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[2]\">Connectez-vous</a></li> \n";
         echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[3]\">Connectez-vous</a></li> \n";
         echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[4]\">Connectez-vous</a></li> \n";
-        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[5]\">Connectez-vous</a></li> \n";
       }
       ?>
       </ul>
