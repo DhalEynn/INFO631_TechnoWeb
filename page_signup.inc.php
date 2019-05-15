@@ -1,16 +1,6 @@
-<form method="post" action="projet.php?page=3">
+<form method="post" action="projet.php?page=signup">
 	<p>
 		<table>
-			<tr>
-				<td>
-					<center>
-						Nom :
-					</center>
-				</td>
-				<td>
-					<input type="text" name="nom" maxlength="10" required /><br />
-				</td>
-			</tr>
 			<tr>
 				<td>
 					<center>
@@ -19,6 +9,16 @@
 				</td>
 				<td>
 					<input type="email" name="mail" maxlength="30" required /><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
+						Nom :
+					</center>
+				</td>
+				<td>
+					<input type="text" name="nom" maxlength="10" required /><br />
 				</td>
 			</tr>
 			<tr>
