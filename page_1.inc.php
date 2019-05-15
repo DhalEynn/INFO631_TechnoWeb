@@ -7,7 +7,7 @@
 	if(isset($_POST["checkForm"]))
 	{
 		// Prepare the query.
-		$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, "EnCours")");
+		$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
 		// Execute the query.
 		$sql->execute(array($_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
 
