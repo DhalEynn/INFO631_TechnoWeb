@@ -43,9 +43,12 @@ $conn = connexion();
       <?php
       $encours = array(" "," "," "," "," ");
 
-      if( !isset($_GET["page"]) ) {
-        $page=0;
-      }else{
+      if(!isset($_GET["page"]) || is_null($_SESSION["mail"]))
+      {
+        $page = 0;
+      }
+      else
+      {
         $page=$_GET["page"];
       }
       $encours[$page] = "encours";
