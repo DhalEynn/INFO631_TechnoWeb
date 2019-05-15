@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if (!isset($_SESSION))
+{
+  session_start();
+}
 
 // Fonction de connexion à la base.
 // Pour changer de base, modifier les valeurs des variables de la base.

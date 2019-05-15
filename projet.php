@@ -1,7 +1,11 @@
 <?php
 
 include("functions.php");
-session_start();
+
+if (!isset($_SESSION))
+{
+  session_start();
+}
 
 if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION["mail"]))
 {
