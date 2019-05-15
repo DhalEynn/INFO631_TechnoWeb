@@ -19,7 +19,7 @@
 
 <?php
 	// Prepare the query.
-	$listProf = $conn->prepare ("SELECT mail, nom FROM `user` WHERE travail = "Professeur";");
+	$listProf = $conn->prepare ("SELECT mail, nom FROM `user` WHERE travail = \"Professeur\";");
 	// Execute the query.
 	$listProf->execute(array());
 ?>
