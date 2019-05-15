@@ -1,0 +1,16 @@
+<?php
+	$conn = connexion();
+
+	if(isset($_POST["checkForm"]))
+	{
+		// Prepare the query.
+		$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, ?)");
+		// Execute the query.
+		$sql->execute(array($_POST["contenu"], $_POST["mailEtu"], $_POST["mailProf"], $_POST["status"]));
+
+
+		unset($_POST["checkForm"]);
+		
+		echo "demande crée !</br>";
+	}
+?>
