@@ -3,6 +3,13 @@
 include("functions.php");
 session_start();
 
+if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION["mail"]))
+{
+  $_SESSION["travail"] = null;
+  $_SESSION["nom"] = null;
+  $_SESSION["mail"] = null;
+}
+
 // Connect to the database
 $conn = connexion();
 
