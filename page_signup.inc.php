@@ -3,7 +3,9 @@
 		<table>
 			<tr>
 				<td>
-					Nom : 
+					<center>
+						Nom :
+					</center>
 				</td>
 				<td>
 					<input type="text" name="nom" maxlength="10" required /><br />
@@ -11,7 +13,9 @@
 			</tr>
 			<tr>
 				<td>
-					mail : 
+					<center>
+					Mail : 
+					</center>
 				</td>
 				<td>
 					<input type="text" name="mail" maxlength="30" required /><br />
@@ -25,8 +29,6 @@
 				<td>
 					<input type="radio" id="professeur" name="fonction" value="professeur" />
 					<label for="professeur">Professeur</label>
-				</td>
-				<td>
 					<input type="radio" id="ST" name="fonction" value="ST" />
 					<label for="ST">Service technique</label>
 				</td>
@@ -46,7 +48,7 @@
 				<td></td>
 				<td>
 					<input type="hidden" name="checkForm" value="formulaire">
-					<input type="submit" value="Envoyer le formulaire">
+					<input type="submit" value="Connexion">
 				</td>
 			</tr>
 		</table>
