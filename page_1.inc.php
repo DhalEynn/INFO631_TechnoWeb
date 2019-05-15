@@ -1,8 +1,11 @@
+// Création d'une demande pour un matériel ou un logiciel.
+// Demandé : contenu, professeur référent
+
 <?php
 	$conn = connexion();
 ?>
 
-<form method="post" action="gestion_batiment.php?page=3">
+<form method="post" action="projet.php?page=3">
 	<p>
 		<table>
 			<tr>
