@@ -18,18 +18,18 @@
 					</center>
 				</td>
 				<td>
-					<input type="text" name="mail" maxlength="30" required /><br />
+					<input type="email" name="mail" maxlength="30" required /><br />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="radio" id="etudiant" name="fonction" value="etudiant" checked />
+					<input type="radio" id="etudiant" name="fonction" value="Etudiant" checked />
 					<label for="etudiant">Etudiant</label>
 				</td>
 				<td>
-					<input type="radio" id="professeur" name="fonction" value="professeur" />
+					<input type="radio" id="professeur" name="fonction" value="Professeur" />
 					<label for="professeur">Professeur</label>
-					<input type="radio" id="ST" name="fonction" value="ST" />
+					<input type="radio" id="ST" name="fonction" value="Service Technique" />
 					<label for="ST">Service technique</label>
 				</td>
 			</tr>
