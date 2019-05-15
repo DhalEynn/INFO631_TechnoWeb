@@ -35,10 +35,12 @@ function ajoutUser ($mail, $nom, $travail)
 	{
 		$sql = $conn->prepare ("INSERT INTO `user` (mail, nom, travail) VALUES (?, ?, ?)");
 		$sql->execute(array($mail, $nom, $travail));
+		return NULL;
 	}
 	catch(PDOException $e)
 	{
-	    echo "Connection failed: " . $e->getMessage();
+	    //echo "Connection failed: " . $e->getMessage();
+	    return $e;
 	}
 }
 

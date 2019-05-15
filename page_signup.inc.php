@@ -1,4 +1,28 @@
 <form method="post" action="projet.php?page=signup">
+<?php
+	$conn = connexion();
+
+	if(isset($_POST["checkForm"]))
+	{
+		// Prepare the query.
+		$sql = $conn->prepare ("SELECT mail FROM `user`");
+		// Execute the query.
+		$sql->execute(array());
+
+		$except = ajoutUser ($_POST["mail"], $_POST["nom"], $_POST["travail"]);	
+		if (is_null($except))
+		{
+			echo "Compte créé !</br>";
+		}
+		else
+		{
+			echo "Adresse mail déjà utilisée, veuillez réessayer avec une autre adresse mail.";
+		}
+
+		unset($_POST["checkForm"]);	
+	}
+?>
+
 	<p>
 		<table>
 			<tr>
@@ -23,13 +47,13 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="radio" id="etudiant" name="fonction" value="Etudiant" checked />
+					<input type="radio" id="etudiant" name="travail" value="Etudiant" checked />
 					<label for="etudiant">Etudiant</label>
 				</td>
 				<td>
-					<input type="radio" id="professeur" name="fonction" value="Professeur" />
+					<input type="radio" id="professeur" name="travail" value="Professeur" />
 					<label for="professeur">Professeur</label>
-					<input type="radio" id="ST" name="fonction" value="Service Technique" />
+					<input type="radio" id="ST" name="travail" value="Service Technique" />
 					<label for="ST">Service technique</label>
 				</td>
 			</tr>
