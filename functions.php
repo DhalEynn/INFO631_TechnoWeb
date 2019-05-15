@@ -44,4 +44,16 @@ function ajoutUser ($mail, $nom, $travail)
 	}
 }
 
+function isConnected ()
+{
+	if (is_null($_SESSION["mail"]) || is_null($_SESSION["nom"]) || is_null($_SESSION["travail"]))
+	{
+		return FALSE;
+	}
+	else
+	{
+		return TRUE;
+	}
+}
+
 ?>

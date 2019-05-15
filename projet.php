@@ -41,23 +41,36 @@ $conn = connexion();
     <div id="menu">
       <ul id="lemenu">
       <?php
-      $encours = array(" "," "," "," "," ");
+      $encours = array(" "," "," "," "," "," ");
 
-      if(!isset($_GET["page"]) || is_null($_SESSION["mail"]))
+      if(!isset($_GET["page"]))
       {
-        $page = signup;
+        $page = 0;
       }
       else
       {
-        $page=$_GET["page"];
+        $page = $_GET["page"];
       }
+
       $encours[$page] = "encours";
 
       echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[0]\">Accueil</a></li>\n";
-      echo "<li><a href=\"?page=1\" class=\"btn_menu $encours[1]\">Creation</a></li>\n";
-      echo "<li><a href=\"?page=2\" class=\"btn_menu $encours[2]\">Modification</a></li> \n";
-      echo "<li><a href=\"?page=3\" class=\"btn_menu $encours[3]\">Validation</a></li> \n";
-      echo "<li><a href=\"?page=4\" class=\"btn_menu $encours[4]\">Consultation</a></li> \n";
+      if (isConnected())
+      {
+        echo "<li><a href=\"?page=1\" class=\"btn_menu $encours[1]\">Creation</a></li>\n";
+        echo "<li><a href=\"?page=2\" class=\"btn_menu $encours[2]\">Modification</a></li> \n";
+        echo "<li><a href=\"?page=3\" class=\"btn_menu $encours[3]\">Validation</a></li> \n";
+        echo "<li><a href=\"?page=4\" class=\"btn_menu $encours[4]\">Consultation</a></li> \n";
+        echo "<li><a href=\"?page=signup\" class=\"btn_menu $encours[5]\">Signup</a></li> \n";
+      }
+      else
+      {
+        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[1]\">Connectez-vous</a></li>\n";
+        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[2]\">Connectez-vous</a></li> \n";
+        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[3]\">Connectez-vous</a></li> \n";
+        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[4]\">Connectez-vous</a></li> \n";
+        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[5]\">Connectez-vous</a></li> \n";
+      }
       ?>
       </ul>
     </div>
