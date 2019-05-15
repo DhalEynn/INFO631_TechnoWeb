@@ -35,7 +35,7 @@
 				<td></td>
 				<td>
 					<input type="hidden" name="checkForm" value="votre demande aux prof">
-					<input type="submit" value="Envoyer la demande aux prof">
+					<input type="submit" value="Envoyer la demande aux professeur">
 				</td>
 			</tr>
 		</table>
