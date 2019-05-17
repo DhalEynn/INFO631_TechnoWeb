@@ -9,17 +9,19 @@
 		// Execute the query.
 		$sql->execute(array());
 
-		$except = ajoutUser ($_POST["mail"], $_POST["nom"], $_POST["travail"]);	
+		$except = ajoutUser ($_POST["mail"], $_POST["nom"], $_POST["travail"]);
 		if (is_null($except))
 		{
 			echo "Compte créé !</br>";
+			$_SESSION["mail"] = $_POST["mail"];
+			$_SESSION["nom"] = $_POST["nom"];
+			$_SESSION["travail"] = $_POST["travail"];
 		}
 		else
 		{
 			echo "Adresse mail déjà utilisée, veuillez réessayer avec une autre adresse mail.";
 		}
-
-		unset($_POST["checkForm"]);	
+		unset($_POST["checkForm"]);
 	}
 ?>
 
@@ -28,7 +30,7 @@
 			<tr>
 				<td>
 					<center>
-					Mail : 
+					Mail :
 					</center>
 				</td>
 				<td>
@@ -60,9 +62,9 @@
 			<!--
 			<tr>
 				<td>
-					mot de passe : 
+					mot de passe :
 				</td>
-			
+
 				<td>
 					<input type="passeword" name="mot_de_passe" maxlength="50" /><br />
 				</td>
