@@ -31,7 +31,7 @@
 	$listProf->execute(array());
 ?>
 
-<form method="post" id="page1" action="projet.php?page=3">
+<form method="post" id="page1" action="projet.php?page=1">
 	<p>
 		Bonjour <?php echo $_SESSION["nom"]; ?>, quelle est votre demande : </br>
 		<table>
@@ -40,7 +40,7 @@
 					Contenu de la demande :
 				</td>
 				<td>
-					<textarea rows="5" cols="50" name="Contenu" form="page1" placeholder="Entrez le contenu de votre demande ici ..."></textarea>
+					<textarea rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" placeholder="Entrez le contenu de votre demande ici (10000 caractères max)" required></textarea>
 				</td>
 			</tr>
 			<tr>
