@@ -1,46 +1,38 @@
 <?php
-	$conn = connexion();
+$conn = connexion();
+	
+	if($_SESSION["travail"] = "Etudiant")
+	{
+		$sql = $conn->prepare ("SELECT * FROM `Demandes` where mailEtu = ?");
+		$sql->execute(array($_SESSION["mail"]));
+		while($array = $sql->fetch(PDO::FETCH_ASSOC))
+		{
+			echo "id : ";
+			echo $array["idDem"];
+			echo "<br/>";
+			echo "sujet : ";
+			echo $array["sujet"];
+			echo "<br/>";
+			echo "contenu : ";
+			echo $array["contenu"];
+			echo "<br/>";
+			echo "mail Professeur : ";
+			echo $array["mailProf"];
+			echo "<br/>";
+			echo "status : ";
+			echo $array["status"];
+			echo "<br/>";
+			echo "<br/>";
+		}
+	}
+	elseif($_SESSION["travail"] = "Professeur")
+	{
+		$sql = $conn->prepare ("SELECT * FROM `Demandes` where mailProf = ?");
+		$sql->execute(array($_SESSION["mail"]));	
+	}
+	else
+	{
+		$sql = $conn->prepare ("SELECT * FROM `Demandes`");	
+		$sql->execute(array());
+	}	
 ?>
-
-<form method="post" action="gestion_batiment.php?page=3">
-	<p>
-		<table>
-			<tr>
-				<td>
-					Nom d'envoi :
-				</td>
-				<td>
-					<input type="text" name="nom" maxlength="50" required /><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Sujet :
-				</td>
-				<td>
-					<input type="text" Sujet="Sujet" maxlength="500" required /><br />
-				</td>
-				</td>
-			</tr>
-			<tr>
-
-				<tr>
-					<td>
-						Message recu :
-					</td>
-					<td>
-						<input type="text" Sujet="Message recu par le prof" maxlength="500" required /><br />
-					</td>
-					</td>
-				</tr>
-				<tr>
-
-				<td></td>
-				<td>
-					<input type="hidden" name="checkForm" value="transmet les Message aux service technique">
-					<input type="submit" value="Envoyer la demande aux service technique">
-				</td>
-			</tr>
-		</table>
-	</p>
-</form>
