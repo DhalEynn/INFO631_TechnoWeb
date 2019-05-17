@@ -11,5 +11,5 @@ La technoWeb sans serveurs, ça marche pas très bien !
 - la saisie et la mise à jour d'une demande d'équipements (projet identifié, ligne budgétaire, produits concernés, quantités, fournisseurs...)
 - **l'accessibilité par différentes parties prenantes (Service technique, étudiants, enseignants...)**
 - la possibilité d'insérer différents types de documents (photos, devis, copie d'un panier depuis un site marchand externe...)
-- visualisation de l'état d'avancement de la demande
+- **visualisation de l'état d'avancement de la demande**
 - la possibilité d'envoyer des mails aux personnes concernées.
