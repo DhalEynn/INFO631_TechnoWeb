@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 mai 2019 à 08:47
+-- Généré le :  ven. 17 mai 2019 à 13:05
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -31,42 +31,39 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `demandes`;
 CREATE TABLE IF NOT EXISTS `demandes` (
   `idDem` int(11) NOT NULL AUTO_INCREMENT,
-  `status` varchar(1000) NOT NULL,
-  `contenu` varchar(500) NOT NULL,
-  `idEtu` int(11) NOT NULL,
-  `idProf` int(11) NOT NULL,
+  `contenu` text NOT NULL,
+  `mailEtu` varchar(100) NOT NULL,
+  `mailProf` varchar(100) NOT NULL,
+  `status` enum('Modifier','Valide','Envoyee','EnCours') NOT NULL,
   PRIMARY KEY (`idDem`),
-  KEY `idEtu` (`idEtu`),
-  KEY `idProf` (`idProf`)
+  KEY `mailEtu` (`mailEtu`),
+  KEY `mailProf` (`mailProf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etudiant`
+-- Structure de la table `user`
 --
 
-DROP TABLE IF EXISTS `etudiant`;
-CREATE TABLE IF NOT EXISTS `etudiant` (
-  `idEtu` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  PRIMARY KEY (`idEtu`)
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `mail` varchar(100) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `travail` enum('Etudiant','Professeur','Service Technique','') NOT NULL,
+  PRIMARY KEY (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `prof`
+-- Déchargement des données de la table `user`
 --
 
-DROP TABLE IF EXISTS `prof`;
-CREATE TABLE IF NOT EXISTS `prof` (
-  `idProf` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  PRIMARY KEY (`idProf`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `user` (`mail`, `nom`, `travail`) VALUES
+('akzubfiuaebfioiabzo@jabfbzai.a', 'pefpaszf', 'Professeur'),
+('azuge@kzajn.ozin', 'cfiazbi', 'Service Technique'),
+('rob@a.b', 'lala', 'Etudiant'),
+('test@robidiot.con', 'nom', 'Etudiant'),
+('tt@t.t', 't', 'Etudiant');
 
 --
 -- Contraintes pour les tables déchargées
@@ -76,8 +73,8 @@ CREATE TABLE IF NOT EXISTS `prof` (
 -- Contraintes pour la table `demandes`
 --
 ALTER TABLE `demandes`
-  ADD CONSTRAINT `demandes_ibfk_1` FOREIGN KEY (`idEtu`) REFERENCES `etudiant` (`idEtu`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `demandes_ibfk_2` FOREIGN KEY (`idProf`) REFERENCES `prof` (`idProf`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `demandes_ibfk_1` FOREIGN KEY (`mailEtu`) REFERENCES `user` (`mail`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `demandes_ibfk_2` FOREIGN KEY (`mailProf`) REFERENCES `user` (`mail`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
