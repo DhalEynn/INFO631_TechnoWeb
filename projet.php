@@ -83,8 +83,6 @@ $conn = connexion();
       {
         echo "<li><a href=\"?page=signup\" class=\"btn_menu $encours[1]\">Signup</a></li>\n";
         echo "<li><a href=\"?page=login\" class=\"btn_menu $encours[2]\">Login</a></li> \n";
-        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[3]\">Connectez-vous</a></li> \n";
-        echo "<li><a href=\"?page=0\" class=\"btn_menu $encours[4]\">Connectez-vous</a></li> \n";
       }
       ?>
       </ul>
