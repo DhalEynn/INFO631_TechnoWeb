@@ -16,11 +16,11 @@ if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION
 
 print_r($_SESSION);
 echo "</br>";
-print_r(isEtudiant());
+print_r("etu " + isEtudiant());
 echo "</br>";
-print_r(isProfesseur());
+print_r("prof " + isProfesseur());
 echo "</br>";
-print_r(isST());
+print_r("st " + isST());
 echo "</br>";
 // Connect to the database
 $conn = connexion();
