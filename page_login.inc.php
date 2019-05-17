@@ -1,4 +1,20 @@
 <form method="post" action="projet.php?page=3">
+<?php
+$conn = connexion();
+if(isset($_POST["checkForm"]))
+{
+	// Prepare the query.
+	$sql = $conn->prepare ("SELECT nom, travail FROM `user` where mail=$_Post["mail"]");
+	// Execute the query.
+	$sql->execute(array());
+	connexion ();
+	$_SESSION["mail"]= $_POST["mail"]
+	$_SESSION["nom"]= "bonjour"
+	$_SESSION["travail"]= "Etudiant"	
+	unset($_POST["checkForm"]);	
+}
+?>
+
 	<p>
 		<table>
 			<tr>
