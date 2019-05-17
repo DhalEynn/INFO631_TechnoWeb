@@ -5,14 +5,24 @@
 if (isConnected())
 {
   echo "<p>Cette interface vous permettra de:
-  <ul>
-  <li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel,
-  <li> <a href=\"?page=2\">Modifier</a> une demande déjà créée!</li>
-  <li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur</li>
-  <li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
-  <li> <a href=\"?page=disconnect\">Se deconnecter.</a> </li>
+  <ul>";
+  if (isEtudiant())
+  {
+    echo "<li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel,";
+  }
+  if (isEtudiant() || isProfesseur())
+  {
+    echo "<li> <a href=\"?page=2\">Modifier</a> une demande déjà créée!</li>";
+  }
+  if (isST())
+  {
+    echo "<li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur</li>";
+  }
+  echo "<li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
   </ul>
   </p>";
+
+  echo "<a href=\"?page=disconnect\">Se deconnecter.</a>";
 }
 else
 {
