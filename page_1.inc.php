@@ -40,7 +40,7 @@
 					Contenu de la demande :
 				</td>
 				<td>
-					<textarea rows="20" cols="80" name="Contenu" form="page1" placeholder="Entrez le contenu de votre demande ici ..."></textarea>
+					<textarea rows="5" cols="50" name="Contenu" form="page1" placeholder="Entrez le contenu de votre demande ici ..."></textarea>
 				</td>
 			</tr>
 			<tr>
