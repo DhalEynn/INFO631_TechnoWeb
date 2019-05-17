@@ -8,17 +8,17 @@ if (isConnected())
   <ul>";
   if (isEtudiant())
   {
-    echo "<li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel,";
+    echo "<li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel.";
   }
   if (isEtudiant() || isProfesseur())
   {
-    echo "<li> <a href=\"?page=2\">Modifier</a> une demande déjà créée!</li>";
+    echo "<li> <a href=\"?page=2\">Modifier</a> une demande déjà créée.</li>";
   }
   if (isST())
   {
-    echo "<li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur</li>";
+    echo "<li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur.</li>";
   }
-  echo "<li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
+  echo "<li> <a href=\"?page=4\">Consulter</a> l'etat de vos demandes.</li>
   </ul>
   </p>";
 
