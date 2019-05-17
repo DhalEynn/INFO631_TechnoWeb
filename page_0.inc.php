@@ -10,12 +10,13 @@ if (isConnected())
   <li> <a href=\"?page=2\">Modifier</a> une demande déjà créée!</li>
   <li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur</li>
   <li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
+  <li> <a href=\"?page=disconnect\">Se deconnecter.</a> </li>
   </ul>
   </p>";
 }
 else
 {
-  echo "<a href=\"?page=signup\">Sign Up</a>
+  echo "
   <a href=\"?page=login\">Login</a>";
 }
 ?>
