@@ -3,11 +3,6 @@
 
 	if(isset($_POST["checkForm"]))
 	{
-		// Prepare the query.
-		$sql = $conn->prepare ("SELECT mail FROM `user`");
-		// Execute the query.
-		$sql->execute(array());
-
 		$except = ajoutUser ($_POST["mail"], $_POST["nom"], $_POST["travail"]);
 		if (is_null($except))
 		{
@@ -15,13 +10,14 @@
 			$_SESSION["mail"] = $_POST["mail"];
 			$_SESSION["nom"] = $_POST["nom"];
 			$_SESSION["travail"] = $_POST["travail"];
+			unset($_POST["checkForm"]);
 			header("refresh:0;url=projet.php");
+			die(0);
 		}
 		else
 		{
 			echo "Adresse mail déjà utilisée, veuillez réessayer avec une autre adresse mail.";
 		}
-		unset($_POST["checkForm"]);
 	}
 ?>
 
