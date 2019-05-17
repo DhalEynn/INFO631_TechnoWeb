@@ -4,39 +4,20 @@
 
 <form method="post" action="gestion_batiment.php?page=1">
 	<p>
-		<table>
-			<tr>
-				<td>
-					Nom :
-				</td>
-				<td>
-					<input type="text" name="nom" maxlength="50" required /><br />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Sujet :
-				</td>
-				<td>
-					<input type="text" Sujet="Sujet" maxlength="100" required /><br />
-				</td>
+		<input type="radio" name="demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="en cour d'analyse") echo "checked";?>
+		value="en cour d'analyse">en cour d'analyse
 
-				<td>
-					Votre demande :
-				</td>
-				<td>
-					<input type="text" Sujet="votre demande" maxlength="500" required /><br />
-				</td>
+		<input type="radio" name="avancement_demande"
+		<?php if (isset($pr) && $avancement_demande=="validation par le frof") echo "checked";?>
+		value="validation par le frof">validation par le frof
 
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input type="hidden" name="checkForm" value="votre demande aux prof">
-					<input type="submit" value="Envoyer la demande aux prof">
-				</td>
-			</tr>
-		</table>
+		<input type="radio" name="avancement_demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="analyse par le service technique") echo "checked";?>
+		value="analyse par le service technique">analyse par le service technique
+
+		<input type="radio" name="avancement_demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="validé par le service technique") echo "checked";?>
+		value="validé par le service technique">validé par le service technique
 	</p>
 </form>
