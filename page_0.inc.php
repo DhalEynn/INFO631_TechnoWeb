@@ -7,8 +7,8 @@ if (isConnected())
   echo "<p>Cette interface vous permettra de:
   <ul>
   <li> <a href=\"?page=1\">Créer</a> une demande pour un matériel/logiciel,
-  <li> <a href=\"?page=2\">Modifier</a> une demande déjà créée,</li>
-  <li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur,</li>
+  <li> <a href=\"?page=2\">Modifier</a> une demande déjà créée!</li>
+  <li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur</li>
   <li> <a href=\"?page=4\">Consulter</a> l'etat des demandes.</li>
   </ul>
   </p>";

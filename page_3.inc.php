@@ -4,20 +4,37 @@
 
 <form method="post" action="gestion_batiment.php?page=1">
 	<p>
-		<input type="radio" name="demande"
-		<?php if (isset($avancement_demande) && $avancement_demande=="en cour d'analyse") echo "checked";?>
-		value="en cour d'analyse">en cour d'analyse
+		// propose aux prof de valide la demande
 
-		<input type="radio" name="avancement_demande"
-		<?php if (isset($pr) && $avancement_demande=="validation par le frof") echo "checked";?>
-		value="validation par le frof">validation par le frof
 
-		<input type="radio" name="avancement_demande"
-		<?php if (isset($avancement_demande) && $avancement_demande=="analyse par le service technique") echo "checked";?>
-		value="analyse par le service technique">analyse par le service technique
+		<input type="radio" name="valide la demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="validation") echo "checked";?>
+		value="validation">validation
 
-		<input type="radio" name="avancement_demande"
-		<?php if (isset($avancement_demande) && $avancement_demande=="validé par le service technique") echo "checked";?>
-		value="validé par le service technique">validé par le service technique
+
+		<input type="radio" name="Revoir la demande"
+		<?php if (isset($pr) && $avancement_demande=="Demande Renvoie à l etudiant") echo "checked";?>
+	// méthode pour renvoie la demande à l étudiant
+		value="Demande Renvoie à l etudiant">Demande Renvoie à l etudiant
+
+		<input type="radio" name="Refus de la demande"
+		<?php if (isset($pr) && $avancement_demande=="Refus la demande") echo "checked";?>
+		value="Refus la demande">Refus la demande
+
+
+		// la validation pour le service technique
+
+		// validation
+		<input type="radio" name="valide définitivement la demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="validation") echo "checked";?>
+		value="validation">validation
+
+		//Refus
+		<input type="radio" name="Refus de la demande"
+		<?php if (isset($avancement_demande) && $avancement_demande=="Refus de la demande") echo "checked";?>
+		value="Refus de la demande">refus de la demande
+
+		//méthode pour informer le prof et l'etudiant
+
 	</p>
 </form>
