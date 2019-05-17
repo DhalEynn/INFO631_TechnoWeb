@@ -9,7 +9,7 @@
 		if (!is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]))
 		{
 			// Prepare the query.
-			$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
+			$sql = $conn->prepare ("INSERT INTO `demandes` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
 			// Execute the query.
 			$sql->execute(array($_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
 
