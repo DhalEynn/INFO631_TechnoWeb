@@ -6,14 +6,21 @@
 
 	if(isset($_POST["checkForm"]))
 	{
-		// Prepare the query.
-		$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
-		// Execute the query.
-		$sql->execute(array($_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
+		if (!is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]))
+		{
+			// Prepare the query.
+			$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
+			// Execute the query.
+			$sql->execute(array($_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
 
-		unset($_POST["checkForm"]);
+			unset($_POST["checkForm"]);
 
-		echo "Demande créée !</br>";
+			echo "Demande créée !</br>";
+		}
+		else
+		{
+			echo "Un de vos paramètres est nul</br>";
+		}
 	}
 ?>
 
