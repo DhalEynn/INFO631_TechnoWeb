@@ -14,6 +14,14 @@ if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION
   $_SESSION["mail"] = NULL;
 }
 
+print_r($_SESSION);
+echo "</br>";
+print_r(isEtudiant());
+echo "</br>";
+print_r(isProfesseur());
+echo "</br>";
+print_r(isST());
+echo "</br>";
 // Connect to the database
 $conn = connexion();
 

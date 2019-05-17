@@ -56,4 +56,40 @@ function isConnected ()
 	}
 }
 
+function isEtudiant ()
+{
+  if (isConnected())
+  {
+    if ($_SESSION["travail"] == "Etudiant")
+    {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+function isProfesseur ()
+{
+  if (isConnected())
+  {
+    if ($_SESSION["travail"] == "Professeur")
+    {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+function isST ()
+{
+  if (isConnected())
+  {
+    if ($_SESSION["travail"] == "Service Technique")
+    {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
 ?>
