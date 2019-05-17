@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 17 mai 2019 à 13:05
+-- Généré le :  ven. 17 mai 2019 à 13:39
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -62,6 +62,7 @@ INSERT INTO `user` (`mail`, `nom`, `travail`) VALUES
 ('akzubfiuaebfioiabzo@jabfbzai.a', 'pefpaszf', 'Professeur'),
 ('azuge@kzajn.ozin', 'cfiazbi', 'Service Technique'),
 ('rob@a.b', 'lala', 'Etudiant'),
+('rof@ka.c', 'azf', 'Etudiant'),
 ('test@robidiot.con', 'nom', 'Etudiant'),
 ('tt@t.t', 't', 'Etudiant');
 
