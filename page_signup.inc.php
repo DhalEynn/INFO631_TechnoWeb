@@ -15,7 +15,7 @@
 			$_SESSION["mail"] = $_POST["mail"];
 			$_SESSION["nom"] = $_POST["nom"];
 			$_SESSION["travail"] = $_POST["travail"];
-			header("refresh:1;url=projet.php");
+			header("refresh:0;url=projet.php");
 		}
 		else
 		{
