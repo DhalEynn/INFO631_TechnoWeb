@@ -1,4 +1,3 @@
-<form method="post" action="projet.php?page=signup">
 <?php
 	$conn = connexion();
 
@@ -26,6 +25,7 @@
 	}
 ?>
 
+<form method="post" action="projet.php?page=signup">
 	<p>
 		<table>
 			<tr>
