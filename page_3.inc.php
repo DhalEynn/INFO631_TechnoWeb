@@ -36,7 +36,6 @@ $res_mailProf = mysqli_query($conn, $sql_mailProf);
 
 				<?php } ?>
 
-				echo "ok";
 
 <?php while ($vef_mail = mysqli_fetch_assoc($res_mailEtu)) {
 			echo $verf['mailEtu'] ;
