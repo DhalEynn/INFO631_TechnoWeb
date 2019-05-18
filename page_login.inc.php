@@ -6,13 +6,13 @@ if(isset($_POST["checkForm"]))
 	$sql = $conn->prepare ("SELECT nom, travail FROM `user` where mail = ?");
 	// Execute the query.
 	$sql->execute(array($_POST["mail"]));
-	echo $sql;
+	//echo $sql;
 	$_SESSION["mail"]= $_POST["mail"];
 	$_SESSION["nom"]= "bonjour";
 	$_SESSION["travail"]= "Etudiant";
 	unset($_POST["checkForm"]);
 	header("refresh:0;url=projet.php");
-	die(0);		
+	die(0);
 }
 ?>
 
@@ -22,7 +22,7 @@ if(isset($_POST["checkForm"]))
 			<tr>
 				<td>
 					<center>
-					Mail : 
+					Mail :
 					</center>
 				</td>
 				<td>
@@ -32,9 +32,9 @@ if(isset($_POST["checkForm"]))
 			<!--
 			<tr>
 				<td>
-					mot de passe : 
+					mot de passe :
 				</td>
-			
+
 				<td>
 					<input type="passeword" name="mot_de_passe" maxlength="50" /><br />
 				</td>

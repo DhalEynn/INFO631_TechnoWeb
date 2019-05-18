@@ -21,3 +21,36 @@ if ($secure_check == false) {
     echo "This email is sent using PHP Mail";
 }
 ?>
+
+
+<?php
+	$conn = connexion();
+	if(isConnected())
+	{
+		if (isProfesseur())
+		{
+
+
+		}
+	}
+
+?>
+
+<form method="post" action="projet.php?page=1">
+			<tr>
+				<td>
+					Merci de bien vouloir consulter la demande
+				</td>
+				<td>
+
+					<input type="radio" name="decision" value="valider">Valider la demande</br>
+					<input type="radio" name="decision" value="modifier">Modifier la demande</br>
+
+					<input type="submit" name="submit" value="Enregistre votre décision">
+				</td>
+			</tr>
+</form>
+
+<?php
+echo $decision;
+?>
