@@ -1,4 +1,41 @@
 <?php
+try
+{
+	//je refais ma connection de bdd
+	$bdd = new PDO('mysql:host=localhost;dbname=projet;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
+//liste de demande avec le status envoyee
+$bdd_demande = $bdd->query('SELECT * FROM demandes');
+
+//accede à ma table
+//$bd_contenu = $bdd->query('SELECT nom FROM user WHERE nom =\'lala\'');
+// $bd_status = $bdd->query('SELECT nom FROM user WHERE nom= "$lala"');
+//$status="";
+?>
+<?php
+while ($contenu = $bdd_demande->fetch())
+{
+?>
+	<p>
+	E-mail d'étudiant demandeur est: <?php echo $contenu['mailEtu']; ?><br />
+	E-mail prof est: <?php echo $contenu['mailProf']; ?><br />
+	Demade est: <?php echo $contenu['contenu']; ?><br />
+	</p>
+<?php
+
+}
+$bdd_demande->closeCursor();
+
+?>
+####################################################""
+
+
+<?php
 function sanitize_my_email($field) {
     $field = filter_var($field, FILTER_SANITIZE_EMAIL);
     if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
