@@ -1,19 +1,18 @@
 <?php
 // Création d'une demande pour un matériel ou un logiciel.
-// Demandé : contenu, professeur référent
+// Demandé : sujet, contenu, professeur référent
 
 	$conn = connexion();
 
 	if(isset($_POST["checkForm"]))
 	{
-		if (!is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]))
+		unset($_POST["checkForm"]);
+		if (!is_null($_POST["Sujet"]) && !is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]))
 		{
 			// Prepare the query.
-			$sql = $conn->prepare ("INSERT INTO `demandes` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, \"EnCours\")");
+			$sql = $conn->prepare ("INSERT INTO `demandes` (sujet, contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, ?, \"EnCours\")");
 			// Execute the query.
-			$sql->execute(array($_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
-
-			unset($_POST["checkForm"]);
+			$sql->execute(array($_POST["Sujet"], $_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
 
 			echo "Demande créée !</br>";
 		}
@@ -35,6 +34,14 @@
 	<p>
 		Bonjour <?php echo $_SESSION["nom"]; ?>, quelle est votre demande : </br>
 		<table>
+			<tr>
+				<td>
+					Sujet de votre demande :
+				</td>
+				<td>
+					<textarea rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="200" placeholder="Sujet de votre demande (200 caractères max)" required></textarea>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					Contenu de la demande :
