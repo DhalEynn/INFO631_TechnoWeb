@@ -1,16 +1,17 @@
-<?php
-	$conn = connexion();
+Terminé :
+- Accueil
+- Creation
+- Déconnexion
 
-	if(isset($_POST["checkForm"]))
-	{
-		// Prepare the query.
-		$sql = $conn->prepare ("INSERT INTO `demande` (contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, ?)");
-		// Execute the query.
-		$sql->execute(array($_POST["contenu"], $_POST["mailEtu"], $_POST["mailProf"], $_POST["status"]));
+En cours
+- Signup
+- Login
+- Consultation
+- Verification
 
+A Faire (V1)
+- Modification
 
-		unset($_POST["checkForm"]);
-		
-		echo "demande crée !</br>";
-	}
-?>
+A Faire (V2)
+- Multiple type de fichiers
+- Mot de passe pour la connexion

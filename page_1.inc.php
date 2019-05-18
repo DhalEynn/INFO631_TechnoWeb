@@ -1,6 +1,6 @@
 <?php
 // Création d'une demande pour un matériel ou un logiciel.
-// Demandé : contenu, professeur référent
+// Demandé : sujet, contenu, professeur référent
 
 	$conn = connexion();
 
