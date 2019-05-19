@@ -2,7 +2,31 @@
 if (isConnected())
 {
 	$conn = connexion();
-	if(isset($_POST["checkForm"]))
+	if (isset($_POST["changement"]))
+	{
+		unset($_POST["changement"]);
+		if (isset($_POST["envoiST"]))
+		{
+			$newStatus = "Envoyee";
+		}
+		$except = updateDemande ($_POST["idDem"], $_POST["Sujet"], $_POST["Contenu"], $newStatus);
+		if (is_null($except))
+		{
+			echo "</br></br><center>";
+			if (isset($_POST["envoiST"]))
+			{
+				echo "Demande envoyée au service technique.";
+			}
+			else
+			{
+				echo "Demande modifiée !</br>";
+			}
+			echo "</br></br>Vous allez être redirigés dans 1 secondes.</center>";
+			header("refresh:2;url=projet.php?page=2");
+			die(0);
+		}
+	}
+	elseif(isset($_POST["checkForm"]))
 	{
 		unset($_POST["checkForm"]);
 		// Prepare the query.
@@ -12,35 +36,50 @@ if (isConnected())
 
 		if($array = $sql->fetch(PDO::FETCH_ASSOC))
 		{ ?>
-			<table>
-				<tr>
-					<td>
-						Nouveau sujet :
-					</td>
-					<td>
-						<textarea class="zoneText" rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="180" wrap="hard" required>
-							<?php echo $array["sujet"] ?>
-						</textarea>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Contenu de la demande :
-					</td>
-					<td>
-						<textarea class="zoneText" rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" wrap="hard" required>
-							<?php echo $array["contenu"] ?>
-						</textarea>
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type="hidden" name="changement" value="changement de la demande">
-						<input type="submit" value="Changer la demande">
-					</td>
-				</tr>
-			</table>
+			<form method="post" id="page2" action="projet.php?page=2">
+				<table>
+					<tr>
+						<td>
+							Nouveau sujet :
+						</td>
+						<td>
+							<textarea class="zoneText" rows="4" cols="50" name="Sujet" form="page2" minlength="1" maxlength="180" wrap="hard" required><?php echo $array["sujet"];?></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Contenu de la demande :
+						</td>
+						<td>
+							<textarea class="zoneText" rows="5" cols="50" name="Contenu" form="page2" minlength="1" maxlength="10000" wrap="hard" required><?php echo $array["contenu"]; ?></textarea>
+						</td>
+					</tr>
+					<?php
+					if (isProfesseur())
+					{
+						?>
+						<tr>
+							<td>
+								Envoyer la demande au service technique :
+							</td>
+							<td>
+								<input type="checkbox" name="envoiST" value="envoyer">
+							</td>
+						</tr>
+						<?php
+					}
+					?>
+					<tr>
+						<td></td>
+						<td>
+							<input type="hidden" name="changement" value="changement de la demande">
+							<input type="hidden" name="checkForm" value="changement de la demande">
+							<input type="hidden" name="idDem" value="<?php echo $array["idDem"] ?>">
+							<input type="submit" value="Envoi de la demande">
+						</td>
+					</tr>
+				</table>
+			</form>
 			<?php
 			echo "<a href=\"?page=2\">Annuler</a>";
 		}
@@ -120,7 +159,9 @@ if (isConnected())
 						</td>
 						<td class="mailDem">
 							<?php
-								echo $array["mailPers"];
+								echo "<center>";
+									echo $array["mailPers"];
+								echo "</center>";
 							?>
 						</td>
 						<td class="statusDem">
