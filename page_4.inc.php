@@ -110,7 +110,9 @@ if (isConnected())
 						</td>
 						<td class="statusDem">
 							<?php
-								echo $array["status"];
+								echo "<center>";
+									echo $array["status"];
+								echo "</center>";
 							?>
 						</td>
 					</tr>
