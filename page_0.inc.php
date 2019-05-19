@@ -4,7 +4,13 @@
 
 if (isConnected())
 {
-  echo "<p>Cette interface vous permettra de:
+  echo "Vous êtes \"" . $_SESSION["nom"] . "\", un ";
+  if ($_SESSION["travail"] == "Service Technique")
+  {
+    echo "membre du ";
+  }
+  echo $_SESSION["travail"] . "</br>Votre adresse mail est " . $_SESSION["mail"];
+  echo "<p>Cette interface vous permet de:
   <ul>";
   if (isEtudiant())
   {

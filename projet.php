@@ -14,8 +14,6 @@ if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION
   $_SESSION["mail"] = NULL;
 }
 
-print_r($_SESSION);
-
 // Connect to the database
 $conn = connexion();
 

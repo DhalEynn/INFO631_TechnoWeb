@@ -3,14 +3,13 @@
 
 	if(isset($_POST["checkForm"]))
 	{
+		unset($_POST["checkForm"]);
 		$except = ajoutUser ($_POST["mail"], $_POST["nom"], $_POST["travail"]);
 		if (is_null($except))
 		{
-			echo "Compte créé !</br>";
 			$_SESSION["mail"] = $_POST["mail"];
 			$_SESSION["nom"] = $_POST["nom"];
 			$_SESSION["travail"] = $_POST["travail"];
-			unset($_POST["checkForm"]);
 			header("refresh:0;url=projet.php");
 			die(0);
 		}

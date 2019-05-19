@@ -106,7 +106,9 @@ if (isConnected())
 						</td>
 						<td class="mailDem">
 							<?php
-								echo $array["mailPers"];
+								echo "<center>";
+									echo $array["mailPers"];
+								echo "</center>";
 							?>
 						</td>
 						<td class="statusDem">
