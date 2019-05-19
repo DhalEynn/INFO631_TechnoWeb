@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 17 mai 2019 à 13:39
+-- Généré le :  Dim 19 mai 2019 à 17:03
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `demandes`;
 CREATE TABLE IF NOT EXISTS `demandes` (
   `idDem` int(11) NOT NULL AUTO_INCREMENT,
+  `sujet` varchar(200) NOT NULL,
   `contenu` text NOT NULL,
   `mailEtu` varchar(100) NOT NULL,
   `mailProf` varchar(100) NOT NULL,
@@ -38,7 +39,17 @@ CREATE TABLE IF NOT EXISTS `demandes` (
   PRIMARY KEY (`idDem`),
   KEY `mailEtu` (`mailEtu`),
   KEY `mailProf` (`mailProf`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `demandes`
+--
+
+INSERT INTO `demandes` (`idDem`, `sujet`, `contenu`, `mailEtu`, `mailProf`, `status`) VALUES
+(1, 'taguele', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nttt\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nttttt\r\n', 'rob@a.b', 'akzubfiuaebfioiabzo@jabfbzai.a', 'Modifier'),
+(2, 'enfoire', '\r\na', 'rob@a.b', 'akzubfiuaebfioiabzo@jabfbzai.a', 'Modifier'),
+(3, 'faza', 'dzafz', 'rob@a.b', 'a@a.a', 'EnCours'),
+(4, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'a', 'rob@a.b', 'a@a.a', 'EnCours');
 
 -- --------------------------------------------------------
 
@@ -59,12 +70,19 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`mail`, `nom`, `travail`) VALUES
+('a@a.a', 'a', 'Professeur'),
 ('akzubfiuaebfioiabzo@jabfbzai.a', 'pefpaszf', 'Professeur'),
 ('azuge@kzajn.ozin', 'cfiazbi', 'Service Technique'),
+('eaz@zea.a', 'daz', 'Service Technique'),
 ('rob@a.b', 'lala', 'Etudiant'),
+('rob@a.bb', 'a', 'Professeur'),
+('rob@a.bbb', 'a', 'Service Technique'),
+('rob@a.bbbb', 'a', 'Service Technique'),
+('rob@a.bbbbbbbbbbbb', 'a', 'Etudiant'),
 ('rof@ka.c', 'azf', 'Etudiant'),
 ('test@robidiot.con', 'nom', 'Etudiant'),
-('tt@t.t', 't', 'Etudiant');
+('tt@t.t', 't', 'Etudiant'),
+('za@az.daz', 'azea', 'Etudiant');
 
 --
 -- Contraintes pour les tables déchargées
