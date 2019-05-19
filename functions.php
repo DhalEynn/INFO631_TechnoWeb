@@ -27,6 +27,22 @@ function connexion ()
 	}
 }
 
+function updateStatus ($idDem, $newStatus)
+{
+  $conn = connexion();
+	try
+	{
+		$sql = $conn->prepare ("UPDATE `demandes` SET status = ? WHERE idDem = ?");
+		$sql->execute(array($newStatus, $idDem));
+	}
+	catch(PDOException $e)
+	{
+	    //echo "Connection failed: " . $e->getMessage();
+	    return $e;
+	}
+  return NULL;
+}
+
 // Ajout d'un nouvel utilisateur, sans véification de validité.
 function ajoutUser ($mail, $nom, $travail)
 {
@@ -35,13 +51,13 @@ function ajoutUser ($mail, $nom, $travail)
 	{
 		$sql = $conn->prepare ("INSERT INTO `user` (mail, nom, travail) VALUES (?, ?, ?)");
 		$sql->execute(array($mail, $nom, $travail));
-		return NULL;
 	}
 	catch(PDOException $e)
 	{
 	    //echo "Connection failed: " . $e->getMessage();
 	    return $e;
 	}
+  return NULL;
 }
 
 function isConnected ()
