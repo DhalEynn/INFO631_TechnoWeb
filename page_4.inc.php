@@ -57,69 +57,69 @@ if (isConnected())
 		}
 		else
 		{
-?>
-<table>
-	<tr class="presentation">
-		<td class="idDem">
-			<center>id :</center>
-		</td>
-		<td class="sujetDem">
-			<center>Sujet :</center>
-		</td>
-		<td class="mailDem">
-			<center>
+		?>
+		<table>
+			<tr class="presentation">
+				<td class="idDem">
+					<center>id :</center>
+				</td>
+				<td class="sujetDem">
+					<center>Sujet :</center>
+				</td>
+				<td class="mailDem">
+					<center>
+						<?php
+							if (isProfesseur())
+							{
+								echo "Etudiant :";
+							}
+							else
+							{
+								echo "Référent :";
+							}
+						?>
+					</center>
+				</td>
+				<td class="statusDem">
+					<center>Status :</center>
+				</td>
+			</tr>
+			<!-- Ecarte le nom des colonnes du contenu des colonnes -->
+			<tr class="ecarteColonne"></tr>
+			<form method="post" action="projet.php?page=4">
+					<input type="hidden" name="checkForm" value="formulaire" /></br>
+					<?php
+						while($array = $sql->fetch(PDO::FETCH_ASSOC))
+						{
+							echo "<tr>";
+								$id=$array["idDem"]; ?>
+								<td class="idDem">
+									<input type="submit" name="idDem" value="<?php echo $id ?>" />
+								</td>
+								<td class="sujetDem">
+									<center>
+										<?php
+											echo $array["sujet"];
+										?>
+									</center>
+								</td>
+								<td class="mailDem">
+									<?php
+										echo $array["mailPers"];
+									?>
+								</td>
+								<td class="statusDem">
+									<?php
+										echo $array["status"];
+									?>
+								</td>
+							</tr>
 				<?php
-					if (isProfesseur())
-					{
-						echo "Etudiant :";
-					}
-					else
-					{
-						echo "Référent :";
 					}
 				?>
-			</center>
-		</td>
-		<td class="statusDem">
-			<center>Status :</center>
-		</td>
-	</tr>
-	<!-- Ecarte le nom des colonnes du contenu des colonnes -->
-	<tr class="ecarteColonne"></tr>
-	<form method="post" action="projet.php?page=4">
-			<input type="hidden" name="checkForm" value="formulaire" /></br>
-			<?php
-				while($array = $sql->fetch(PDO::FETCH_ASSOC))
-				{
-					echo "<tr>";
-						$id=$array["idDem"]; ?>
-						<td class="idDem">
-							<input type="submit" name="idDem" value="<?php echo $id ?>" />
-						</td>
-						<td class="sujetDem">
-							<center>
-								<?php
-									echo $array["sujet"];
-								?>
-							</center>
-						</td>
-						<td class="mailDem">
-							<?php
-								echo $array["mailPers"];
-							?>
-						</td>
-						<td class="statusDem">
-							<?php
-								echo $array["status"];
-							?>
-						</td>
-					</tr>
+			</form>
+		</table>
 		<?php
-			}
-		?>
-	</form>
-</table>
-<?php
 		}
 	}
 }
