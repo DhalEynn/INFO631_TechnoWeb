@@ -8,10 +8,7 @@ if (isConnected())
 		if (isset($_POST["validation"]))
 		{
 			echo "bonjour";
-			$sql = $conn->prepare ("Update * FROM `demandes` WHERE idDem = ?");
-			// Execute the query.
-			$sql->execute(array($_POST["valeurid"]));
-
+			updateStatus($_POST["validation"], "Valide");
 		}
 	}
 	elseif(isset($_POST["checkForm"]))
@@ -41,11 +38,12 @@ if (isConnected())
 			echo "<br/>";
 			echo "<br/>";
 			?>
-			<form method="post" action="projet.php?page=3">
+			<form method="post" action="projet.php?page=3"/>
 			<input type="hidden" name="action" value="formulaire" /></br>
 			<input type="submit" name="validation" value="Valide" />
 			<input type="text" name="valeurid" value="<?php echo $array["idDem"] ?>" required/>
 			<input type="submit" name="validation" value="Modifier" />
+			</form>
 			<?php
 			echo "<a href=\"?page=3\">Retour</a>";
 		}
