@@ -127,14 +127,18 @@ ul#lemenu li{
 /*    CSS pour page 1    */
 /*-----------------------*/
 
-#zoneText{
+.zoneText{
   margin-top: : 10px;
   margin-bottom: 10px;
 }
 
 /*-----------------------*/
-/*    CSS pour page 4    */
+/*    CSS pour page 2    */
 /*-----------------------*/
+
+/*------------------------------*/
+/*    CSS pour pages 2, 3, 4    */
+/*------------------------------*/
 
 .presentation{
   font-weight: bold;
