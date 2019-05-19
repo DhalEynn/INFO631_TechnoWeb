@@ -26,6 +26,6 @@ if (isConnected())
 }
 else
 {
-  echo "test";
+  echo "<a href=\"?page=login\">Connectez vous !</a>";
 }
 ?>

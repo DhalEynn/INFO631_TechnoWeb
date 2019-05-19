@@ -1,8 +1,11 @@
 <?php
 // Création d'une demande pour un matériel ou un logiciel.
 // Demandé : sujet, contenu, professeur référent
-
+if (isConnected())
+{
 	$conn = connexion();
+
+	// Traitement du formulaire
 
 	if(isset($_POST["checkForm"]))
 	{
@@ -21,12 +24,9 @@
 			echo "Un de vos paramètres est nul</br>";
 		}
 	}
-?>
 
-<?php
-	// Prepare the query.
+	// Recuperation de la liste des professeurs pour le formulaire
 	$listProf = $conn->prepare ("SELECT mail, nom FROM `user` WHERE travail = \"Professeur\";");
-	// Execute the query.
 	$listProf->execute(array());
 ?>
 
@@ -77,3 +77,11 @@
 		</table>
 	</p>
 </form>
+<?php
+}
+else
+{
+	header("refresh:0;url=projet.php");
+	die(0);
+}
+?>

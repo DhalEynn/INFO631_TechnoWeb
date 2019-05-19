@@ -1,4 +1,6 @@
 <?php
+if (isConnected())
+{
 	$conn = connexion();
 ?>
 
@@ -40,3 +42,11 @@
 		</table>
 	</p>
 </form>
+<?php
+}
+else
+{
+	header("refresh:0;url=projet.php");
+	die(0);
+}
+?>
