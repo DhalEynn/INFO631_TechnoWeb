@@ -50,6 +50,13 @@ if (isConnected())
 			$sql = $conn->prepare ("SELECT * FROM `Demandes`");
 			$sql->execute(array());
 		}
+
+		if (is_null($sql) || $sql->rowCount() == 0)
+		{
+			echo "</br>Vous n'avez aucune demande en cours.";
+		}
+		else
+		{
 			while($array = $sql->fetch(PDO::FETCH_ASSOC))
 			{
 				$id=$array["idDem"];
@@ -75,6 +82,7 @@ if (isConnected())
 				echo $array["sujet"];
 				echo "<br/>";
 			}
+		}
 	}
 }
 else
