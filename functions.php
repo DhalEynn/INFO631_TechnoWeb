@@ -43,6 +43,22 @@ function updateStatus ($idDem, $newStatus)
   return NULL;
 }
 
+function updateDemande ($idDem, $sujet, $contenu, $newStatus = "EnCours")
+{
+  $conn = connexion();
+	try
+	{
+		$sql = $conn->prepare ("UPDATE `demandes` SET sujet = ?, contenu = ?, status = ? WHERE idDem = ?");
+		$sql->execute(array($sujet, $contenu, $newStatus, $idDem));
+	}
+	catch(PDOException $e)
+	{
+	    //echo "Connection failed: " . $e->getMessage();
+	    return $e;
+	}
+  return NULL;
+}
+
 // Ajout d'un nouvel utilisateur, sans véification de validité.
 function ajoutUser ($mail, $nom, $travail)
 {
