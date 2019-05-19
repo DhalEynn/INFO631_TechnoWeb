@@ -87,35 +87,35 @@ if (isConnected())
 			<!-- Ecarte le nom des colonnes du contenu des colonnes resultat -->
 			<tr class="ecarteColonne"></tr>
 			<form method="post" action="projet.php?page=4">
-					<input type="hidden" name="checkForm" value="formulaire" /></br>
-					<?php
-						while($array = $sql->fetch(PDO::FETCH_ASSOC))
-						{
-							?>
-							<tr>
-								<td class="idDem">
-									<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
-								</td>
-								<td class="sujetDem">
-									<center>
-										<?php
-											echo $array["sujet"];
-										?>
-									</center>
-								</td>
-								<td class="mailDem">
-									<?php
-										echo $array["mailPers"];
-									?>
-								</td>
-								<td class="statusDem">
-									<?php
-										echo $array["status"];
-									?>
-								</td>
-							</tr>
+				<input type="hidden" name="checkForm" value="formulaire" /></br>
 				<?php
-					}
+				while($array = $sql->fetch(PDO::FETCH_ASSOC))
+				{
+					?>
+					<tr>
+						<td class="idDem">
+							<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
+						</td>
+						<td class="sujetDem">
+							<center>
+								<?php
+									echo $array["sujet"];
+								?>
+							</center>
+						</td>
+						<td class="mailDem">
+							<?php
+								echo $array["mailPers"];
+							?>
+						</td>
+						<td class="statusDem">
+							<?php
+								echo $array["status"];
+							?>
+						</td>
+					</tr>
+					<?php
+				}
 				?>
 			</form>
 		</table>
