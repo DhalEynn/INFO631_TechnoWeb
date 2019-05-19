@@ -8,10 +8,7 @@ if (isConnected())
 		if (isset($_POST["validation"]))
 		{
 			echo "bonjour";
-			$sql = $conn->prepare ("Update * FROM `demandes` WHERE idDem = ?");
-			// Execute the query.
-			$sql->execute(array($_POST["valeurid"]));
-
+			updateStatus($_POST["validation"], "Valide");
 		}
 	}
 	elseif(isset($_POST["checkForm"]))
