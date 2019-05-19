@@ -37,17 +37,17 @@ if (isConnected())
 	{
 		if(isEtudiant())
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers FROM `Demandes` WHERE mailEtu = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `Demandes` WHERE mailEtu = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		elseif(isProfesseur())
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers FROM `Demandes` WHERE mailProf = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `Demandes` WHERE mailProf = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		else
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers FROM `Demandes`");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `Demandes`");
 			$sql->execute(array());
 		}
 
@@ -59,33 +59,58 @@ if (isConnected())
 		{
 ?>
 <table>
+	<tr class="presentation">
+		<td class="idDem">
+			<center>id :</center>
+		</td>
+		<td class="sujetDem">
+			<center>Sujet :</center>
+		</td>
+		<td class="mailDem">
+			<center>
+				<?php
+					if (isProfesseur())
+					{
+						echo "Etudiant :";
+					}
+					else
+					{
+						echo "Référent :";
+					}
+				?>
+			</center>
+		</td>
+		<td class="statusDem">
+			<center>Status :</center>
+		</td>
+	</tr>
+	<!-- Ecarte le nom des colonnes du contenu des colonnes -->
+	<tr class="ecarteColonne"></tr>
 	<form method="post" action="projet.php?page=4">
 			<input type="hidden" name="checkForm" value="formulaire" /></br>
 			<?php
 				while($array = $sql->fetch(PDO::FETCH_ASSOC))
 				{
-					echo "<tr id=\"formDem\">";
+					echo "<tr>";
 						$id=$array["idDem"]; ?>
-						<td id="idDem">
-							<input type="submit" name="idDem" value="id : <?php echo $id ?>" />
+						<td class="idDem">
+							<input type="submit" name="idDem" value="<?php echo $id ?>" />
 						</td>
-						<td id="sujetDem">
+						<td class="sujetDem">
+							<center>
+								<?php
+									echo $array["sujet"];
+								?>
+							</center>
+						</td>
+						<td class="mailDem">
 							<?php
-								echo "Sujet :";
-								echo $array["sujet"];
+								echo $array["mailPers"];
 							?>
 						</td>
-						<td id="mailDem">
+						<td class="statusDem">
 							<?php
-								if (isProfesseur())
-								{
-									echo "Etudiant :";
-								}
-								else
-								{
-									echo "Référent :";
-								}
-								echo $array["mailPers"];
+								echo $array["status"];
 							?>
 						</td>
 					</tr>

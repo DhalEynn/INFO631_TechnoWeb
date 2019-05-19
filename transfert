@@ -24,7 +24,9 @@ A Faire (V2)
 
 
 
-- Code utile
-
+- Changer de page facilement :
 header("refresh:0;url=projet.php");
 die(0);
+
+- Commentaires html :
+<!-- ... -->

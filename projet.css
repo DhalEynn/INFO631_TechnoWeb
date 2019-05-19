@@ -136,19 +136,26 @@ ul#lemenu li{
 /*    CSS pour page 4    */
 /*-----------------------*/
 
-#formDem{
-  margin-top: : 10px;
-  margin-bottom: 10px;
+.presentation{
+  font-weight: bold;
 }
 
-#idDem{
-  width: 10%;
+.ecarteColonne{
+  height: 10px;
 }
 
-#sujetDem{
-  width: 50%;
+.idDem{
+  width: auto;
 }
 
-#mailDem{
-  width: 40%;
+.sujetDem{
+
+}
+
+.mailDem{
+  width: 35%;
+}
+
+.statusDem{
+  width: auto;
 }
