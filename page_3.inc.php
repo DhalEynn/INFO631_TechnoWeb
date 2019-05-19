@@ -7,9 +7,17 @@ if (isConnected())
 		unset($_POST["action"]);
 		if (isset($_POST["validation"]))
 		{
-			echo "bonjour";
-			updateStatus($_POST["valeurid"], "Valide");
+			if($_POST["validation"]== "Valide")
+			{
+				updateStatus($_POST["valeurid"], "Valide");
+			}
+			else
+			{
+				updateStatus($_POST["valeurid"], "Modifier");
+			}
 		}
+		header("refresh:0;url=http://localhost/info642_technoweb/projet.php?page=3");
+		die(0);
 	}
 	elseif(isset($_POST["checkForm"]))
 	{
@@ -41,7 +49,7 @@ if (isConnected())
 			<form method="post" action="projet.php?page=3">
 				<input type="hidden" name="action" value="formulaire" /></br>
 				<input type="submit" name="validation" value="Valide" />
-				<input type="text" name="valeurid" value="<?php echo $array["idDem"] ?>" required />
+				<input type="hidden" name="valeurid" value="<?php echo $array["idDem"] ?>" required />
 				<input type="submit" name="validation" value="Modifier" />
 			</form>
 			<?php
