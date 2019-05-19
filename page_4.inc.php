@@ -84,7 +84,7 @@ if (isConnected())
 					<center>Status :</center>
 				</td>
 			</tr>
-			<!-- Ecarte le nom des colonnes du contenu des colonnes -->
+			<!-- Ecarte le nom des colonnes du contenu des colonnes resultat -->
 			<tr class="ecarteColonne"></tr>
 			<form method="post" action="projet.php?page=4">
 					<input type="hidden" name="checkForm" value="formulaire" /></br>
