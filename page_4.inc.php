@@ -6,7 +6,7 @@ if (isConnected())
 	{
 		unset($_POST["checkForm"]);
 		// Prepare the query.
-		$sql = $conn->prepare ("SELECT * FROM `demandes` where idDem = ?");
+		$sql = $conn->prepare ("SELECT * FROM `demandes` WHERE idDem = ?");
 		// Execute the query.
 		$sql->execute(array($_POST["idDem"]));
 
@@ -37,17 +37,17 @@ if (isConnected())
 	{
 		if(isEtudiant())
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `Demandes` WHERE mailEtu = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE mailEtu = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		elseif(isProfesseur())
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `Demandes` WHERE mailProf = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `demandes` WHERE mailProf = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		else
 		{
-			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `Demandes`");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes`");
 			$sql->execute(array());
 		}
 
