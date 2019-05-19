@@ -131,3 +131,24 @@ ul#lemenu li{
   margin-top: : 10px;
   margin-bottom: 10px;
 }
+
+/*-----------------------*/
+/*    CSS pour page 4    */
+/*-----------------------*/
+
+#formDem{
+  margin-top: : 10px;
+  margin-bottom: 10px;
+}
+
+#idDem{
+  width: 10%;
+}
+
+#sujetDem{
+  width: 50%;
+}
+
+#mailDem{
+  width: 40%;
+}

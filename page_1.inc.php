@@ -41,7 +41,7 @@ if (isConnected())
 					Sujet de votre demande :
 				</td>
 				<td>
-					<textarea id="zoneText" rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="200" placeholder="Sujet de votre demande (200 caractères max)" required></textarea>
+					<textarea id="zoneText" rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="180" placeholder="Sujet de votre demande (180 caractères max)" wrap="hard" required></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -49,7 +49,7 @@ if (isConnected())
 					Contenu de la demande :
 				</td>
 				<td>
-					<textarea id="zoneText" rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" placeholder="Entrez le contenu de votre demande ici (10000 caractères max)" required></textarea>
+					<textarea id="zoneText" rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" placeholder="Entrez le contenu de votre demande ici (10000 caractères max)" wrap="hard" required></textarea>
 				</td>
 			</tr>
 			<tr>

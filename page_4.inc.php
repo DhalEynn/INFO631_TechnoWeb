@@ -37,17 +37,17 @@ if (isConnected())
 	{
 		if(isEtudiant())
 		{
-			$sql = $conn->prepare ("SELECT * FROM `Demandes` where mailEtu = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers FROM `Demandes` WHERE mailEtu = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		elseif(isProfesseur())
 		{
-			$sql = $conn->prepare ("SELECT * FROM `Demandes` where mailProf = ?");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers FROM `Demandes` WHERE mailProf = ?");
 			$sql->execute(array($_SESSION["mail"]));
 		}
 		else
 		{
-			$sql = $conn->prepare ("SELECT * FROM `Demandes`");
+			$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers FROM `Demandes`");
 			$sql->execute(array());
 		}
 
@@ -57,31 +57,44 @@ if (isConnected())
 		}
 		else
 		{
-			while($array = $sql->fetch(PDO::FETCH_ASSOC))
-			{
-				$id=$array["idDem"];
-				?>
-
-		<table>
-			<tr>
-				<td>
-					id :
-				</td>
-				<td>
-					<form method="post" action="projet.php?page=4">
-					<input type="hidden" name="checkForm" value="formulaire" />
-					<input type="submit" name="idDem" value="<?php echo $id?>" />
-				</td>
-			</tr>
-		</table>
-
-<?php
-				//echo $array["idDem"];
-				echo "<br/>";
-				echo "sujet : ";
-				echo $array["sujet"];
-				echo "<br/>";
+?>
+<table>
+	<form method="post" action="projet.php?page=4">
+			<input type="hidden" name="checkForm" value="formulaire" /></br>
+			<?php
+				while($array = $sql->fetch(PDO::FETCH_ASSOC))
+				{
+					echo "<tr id=\"formDem\">";
+						$id=$array["idDem"]; ?>
+						<td id="idDem">
+							<input type="submit" name="idDem" value="id : <?php echo $id ?>" />
+						</td>
+						<td id="sujetDem">
+							<?php
+								echo "Sujet :";
+								echo $array["sujet"];
+							?>
+						</td>
+						<td id="mailDem">
+							<?php
+								if (isProfesseur())
+								{
+									echo "Etudiant :";
+								}
+								else
+								{
+									echo "Référent :";
+								}
+								echo $array["mailPers"];
+							?>
+						</td>
+					</tr>
+		<?php
 			}
+		?>
+	</form>
+</table>
+<?php
 		}
 	}
 }
