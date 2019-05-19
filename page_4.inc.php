@@ -86,7 +86,7 @@ if (isConnected())
 				</td>
 			</tr>
 			<!-- Ecarte le nom des colonnes du contenu des colonnes resultat -->
-			<tr class="ecarteColonne"></tr>
+			<tr class="ecarteColonne"></tr> <!-- Ce n'est pas un bug, c'est une feature... -->
 			<form method="post" action="projet.php?page=4">
 				<input type="hidden" name="checkForm" value="formulaire" /></br>
 				<?php
