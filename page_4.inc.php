@@ -31,6 +31,7 @@ if (isConnected())
 			echo $array["status"];
 			echo "<br/>";
 			echo "<br/>";
+			echo "<a href=\"?page=4\">Retour</a>";
 		}
 	}
 	else

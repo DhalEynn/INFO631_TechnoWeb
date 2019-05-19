@@ -8,7 +8,7 @@ La technoWeb sans serveurs, ça marche pas très bien !
 - le Service technique demande un cahier des charges plus détaillé si nécessaire puis valide à son tour la demande de travaux
 - dès lors, une information sur l'état d'exécution de la commande est fournie aux différentes parties prenantes (étudiants, enseignants, Service technique...).
 ### Nous souhaitons mettre en place un support informatique pour ce processus avec les fonctionnalités attendues suivantes :
-- la saisie et la mise à jour d'une demande d'équipements (projet identifié, ligne budgétaire, produits concernés, quantités, fournisseurs...)
+- **la saisie** et la mise à jour d'une demande d'équipements (projet identifié, ligne budgétaire, produits concernés, quantités, fournisseurs...)
 - **l'accessibilité par différentes parties prenantes (Service technique, étudiants, enseignants...)**
 - la possibilité d'insérer différents types de documents (photos, devis, copie d'un panier depuis un site marchand externe...)
 - **visualisation de l'état d'avancement de la demande**
