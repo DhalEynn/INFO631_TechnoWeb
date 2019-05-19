@@ -42,10 +42,11 @@ if (isConnected())
 			echo "<br/>";
 			?>
 			<form method="post" action="projet.php?page=3">
-			<input type="hidden" name="action" value="formulaire" /></br>
-			<input type="submit" name="validation" value="Valide" />
-			<input type="text" name="valeurid" value="<?php echo $array["idDem"] ?>" required/>
-			<input type="submit" name="validation" value="Modifier" />
+				<input type="hidden" name="action" value="formulaire" /></br>
+				<input type="submit" name="validation" value="Valide" />
+				<input type="text" name="valeurid" value="<?php echo $array["idDem"] ?>" required />
+				<input type="submit" name="validation" value="Modifier" />
+			</form>
 			<?php
 			echo "<a href=\"?page=3\">Retour</a>";
 		}
@@ -54,7 +55,7 @@ if (isConnected())
 	{
 		$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE status = 'Envoyee'");
 		$sql->execute(array());
-	
+
 
 		if (is_null($sql) || $sql->rowCount() == 0)
 		{
