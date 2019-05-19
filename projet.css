@@ -136,6 +136,10 @@ ul#lemenu li{
 /*    CSS pour page 2    */
 /*-----------------------*/
 
+.modifier{
+  background-color: hotpink;
+}
+
 /*------------------------------*/
 /*    CSS pour pages 2, 3, 4    */
 /*------------------------------*/
