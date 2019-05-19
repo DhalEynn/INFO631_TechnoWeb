@@ -8,7 +8,7 @@ if (isConnected())
 		if (isset($_POST["validation"]))
 		{
 			echo "bonjour";
-			updateStatus($_POST["validation"], "Valide");
+			updateStatus($_POST["valeurid"], "Valide");
 		}
 	}
 	elseif(isset($_POST["checkForm"]))
