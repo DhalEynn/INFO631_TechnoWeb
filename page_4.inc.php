@@ -91,10 +91,10 @@ if (isConnected())
 					<?php
 						while($array = $sql->fetch(PDO::FETCH_ASSOC))
 						{
-							echo "<tr>";
-								$id=$array["idDem"]; ?>
+							?>
+							<tr>
 								<td class="idDem">
-									<input type="submit" name="idDem" value="<?php echo $id ?>" />
+									<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
 								</td>
 								<td class="sujetDem">
 									<center>
