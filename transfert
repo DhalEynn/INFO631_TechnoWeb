@@ -15,3 +15,16 @@ A Faire (V1)
 A Faire (V2)
 - Multiple type de fichiers
 - Mot de passe pour la connexion
+
+
+
+
+
+
+
+
+
+- Code utile
+
+header("refresh:0;url=projet.php");
+die(0);

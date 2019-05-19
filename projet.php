@@ -15,13 +15,7 @@ if (!isset($_SESSION["travail"]) || !isset($_SESSION["nom"]) || !isset($_SESSION
 }
 
 print_r($_SESSION);
-echo "</br>etu ";
-print_r(isEtudiant());
-echo "</br>prof ";
-print_r(isProfesseur());
-echo "</br>st ";
-print_r(isST());
-echo "</br>";
+
 // Connect to the database
 $conn = connexion();
 

@@ -17,11 +17,13 @@ if (isConnected())
 			// Execute the query.
 			$sql->execute(array($_POST["Sujet"], $_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
 
-			echo "Demande créée !</br>";
+			echo "</br></br><center>Demande créée !</br></br>Vous allez être redirigés dans 1 secondes.</center>";
+			header("refresh:2;url=projet.php?page=1");
+			die(0);
 		}
 		else
 		{
-			echo "Un de vos paramètres est nul</br>";
+			echo "<center>Un de vos paramètres est nul, veuillez réessayer.</center></br>";
 		}
 	}
 
@@ -32,14 +34,14 @@ if (isConnected())
 
 <form method="post" id="page1" action="projet.php?page=1">
 	<p>
-		Bonjour <?php echo $_SESSION["nom"]; ?>, quelle est votre demande : </br>
+		Bonjour <?php echo $_SESSION["nom"]; ?>, quelle est votre demande : </br></br>
 		<table>
 			<tr>
 				<td>
 					Sujet de votre demande :
 				</td>
 				<td>
-					<textarea rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="200" placeholder="Sujet de votre demande (200 caractères max)" required></textarea>
+					<textarea id="zoneText" rows="4" cols="50" name="Sujet" form="page1" minlength="1" maxlength="200" placeholder="Sujet de votre demande (200 caractères max)" required></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -47,7 +49,7 @@ if (isConnected())
 					Contenu de la demande :
 				</td>
 				<td>
-					<textarea rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" placeholder="Entrez le contenu de votre demande ici (10000 caractères max)" required></textarea>
+					<textarea id="zoneText" rows="5" cols="50" name="Contenu" form="page1" minlength="1" maxlength="10000" placeholder="Entrez le contenu de votre demande ici (10000 caractères max)" required></textarea>
 				</td>
 			</tr>
 			<tr>
