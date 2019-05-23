@@ -20,6 +20,7 @@ $bdd_demande = $bdd->query('SELECT * FROM demandes');
 <?php
 while ($contenu = $bdd_demande->fetch())
 {
+	
 ?>
 	<p>
 	E-mail d'étudiant demandeur est: <?php echo $contenu['mailEtu']; ?><br />
