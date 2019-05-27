@@ -62,17 +62,6 @@
 							<label for="ST">Service technique</label>
 						</td>
 					</tr>
-					<!--
-					<tr>
-						<td>
-							mot de passe :
-						</td>
-
-						<td>
-							<input type="passeword" name="mot_de_passe" maxlength="50" /><br />
-						</td>
-					</tr>
-					-->
 					<tr>
 						<td></td>
 						<td>

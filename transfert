@@ -84,3 +84,17 @@ if ($uploadOk == 0) {
     }
 }
 ?>
+
+
+
+<!--
+<tr>
+  <td>
+    mot de passe :
+  </td>
+
+  <td>
+    <input type="passeword" name="mot_de_passe" maxlength="50" /><br />
+  </td>
+</tr>
+-->
