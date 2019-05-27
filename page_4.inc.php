@@ -38,17 +38,17 @@
 		{
 			if(isEtudiant())
 			{
-				$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE mailEtu = ?");
+				$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE mailEtu = ? AND status NOT LIKE \"Archive\"");
 				$sql->execute(array($_SESSION["mail"]));
 			}
 			elseif(isProfesseur())
 			{
-				$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `demandes` WHERE mailProf = ?");
+				$sql = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `demandes` WHERE mailProf = ? AND status NOT LIKE \"Archive\"");
 				$sql->execute(array($_SESSION["mail"]));
 			}
 			else
 			{
-				$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes`");
+				$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE status NOT LIKE \"Archive\"");
 				$sql->execute(array());
 			}
 
