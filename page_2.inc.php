@@ -9,6 +9,10 @@ if (isEtudiant() || isProfesseur())
 		{
 			$newStatus = "Envoyee";
 		}
+		else
+		{
+			$newStatus = "EnCours";
+		}
 		$except = updateDemande ($_POST["idDem"], $_POST["Sujet"], $_POST["Contenu"], $newStatus);
 		if (is_null($except))
 		{
