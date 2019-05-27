@@ -1,5 +1,5 @@
 # INFO642_TechnoWeb
-La technoWeb sans serveurs, ça marche pas très bien !
+La matière INFO642-technoWeb sans serveurs, ça marche pas très bien !
 
 ## Projet 1 : Gestion des commandes pour projets pédagogiques
 ### Il s'agit de concevoir et réaliser une application web qui permet de gérer des commandes d'équipements pour les besoins des étudiants. Le processus à l'école est le suivant :
