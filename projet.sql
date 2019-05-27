@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 27 mai 2019 à 12:58
+-- Généré le :  lun. 27 mai 2019 à 15:20
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -31,7 +31,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `mail` varchar(100) NOT NULL,
-  `nom` varchar(20) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `password` varchar(70) NOT NULL,
   `travail` enum('Etudiant','Professeur','Service Technique','') NOT NULL,
   PRIMARY KEY (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

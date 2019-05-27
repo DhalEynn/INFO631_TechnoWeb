@@ -11,18 +11,23 @@
 		{
 			unset($_POST["checkForm"]);
 
-			$sql = $conn->prepare ("SELECT nom, travail FROM `user` where mail = ?");
-			$sql->execute(array($_POST["mail"]));
-
-			if($array = $sql->fetch(PDO::FETCH_ASSOC))
+			if ($_POST["password"] != "" || strlen($_POST["password"]) > 50)
 			{
-				$_SESSION["mail"]= $_POST["mail"];
-				$_SESSION["nom"]= $array["nom"];
-				$_SESSION["travail"]= $array["travail"];
-				header("refresh:0;url=projet.php");
-				die(0);
+				$password = hash("sha256", $_POST["password"], false);
+
+				$sql = $conn->prepare ("SELECT nom, travail FROM `user` WHERE mail = ? AND password = ?");
+				$sql->execute(array($_POST["mail"], $password));
+
+				if($array = $sql->fetch(PDO::FETCH_ASSOC))
+				{
+					$_SESSION["mail"]= $_POST["mail"];
+					$_SESSION["nom"]= $array["nom"];
+					$_SESSION["travail"]= $array["travail"];
+					header("refresh:0;url=projet.php");
+					die(0);
+				}
 			}
-			echo "Aucun compte n'est lié à cette adresse mail.</br>";
+			echo "Votre adresse mail ou votre mot de passe sont invalides. Veuillez réessayer.</br>";
 		}
 		?>
 
@@ -36,20 +41,17 @@
 							</center>
 						</td>
 						<td>
-							<input type="email" name="mail" maxlength="30" required /><br />
+							<input type="email" name="mail" maxlength="60" required /><br />
 						</td>
 					</tr>
-					<!--
 					<tr>
-						<td>
-							mot de passe :
-						</td>
-
-						<td>
-							<input type="passeword" name="mot_de_passe" maxlength="50" /><br />
-						</td>
+					  <td>
+					    Mot de passe :
+					  </td>
+					  <td>
+					    <input type="passeword" name="password" maxlength="50" value="" placeholder="50 caractères max" required /><br />
+					  </td>
 					</tr>
-					-->
 					<tr>
 						<td></td>
 						<td>

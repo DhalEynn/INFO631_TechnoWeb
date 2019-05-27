@@ -60,13 +60,14 @@ function updateDemande ($idDem, $sujet, $contenu, $newStatus = "EnCours")
 }
 
 // Ajout d'un nouvel utilisateur, sans véification de validité.
-function ajoutUser ($mail, $nom, $travail)
+function ajoutUser ($mail, $nom, $noHash, $travail)
 {
 	$conn = connexion();
+  $password = hash("sha256", $noHash, false);
 	try
 	{
-		$sql = $conn->prepare ("INSERT INTO `user` (mail, nom, travail) VALUES (?, ?, ?)");
-		$sql->execute(array($mail, $nom, $travail));
+		$sql = $conn->prepare ("INSERT INTO `user` (mail, nom, password, travail) VALUES (?, ?, ?, ?)");
+		$sql->execute(array($mail, $nom, $password, $travail));
 	}
 	catch(PDOException $e)
 	{
