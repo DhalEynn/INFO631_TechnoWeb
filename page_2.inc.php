@@ -1,5 +1,5 @@
 <?php
-if (isConnected())
+if (isEtudiant() || isProfesseur())
 {
 	$conn = connexion();
 	if (isset($_POST["changement"]))

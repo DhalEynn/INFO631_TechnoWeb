@@ -1,7 +1,7 @@
 <?php
 // Création d'une demande pour un matériel ou un logiciel.
 // Demandé : sujet, contenu, professeur référent
-if (isConnected())
+if (isEtudiant())
 {
 	$conn = connexion();
 

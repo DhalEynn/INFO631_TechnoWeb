@@ -1,5 +1,5 @@
 <?php
-if (isConnected())
+if (isST())
 {
 	$conn = connexion();
 	if(isset($_POST["action"]))
