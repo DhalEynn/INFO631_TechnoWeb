@@ -59,7 +59,7 @@
 
 			if (is_null($sql) || $sql->rowCount() == 0)
 			{
-				echo "</br>Vous n'avez aucune demande en cours.";
+				echo "</br>Vous n'avez aucune demande à valider.";
 			}
 			else
 			{
