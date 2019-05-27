@@ -105,18 +105,18 @@ if (isConnected())
 							</center>
 						</td>
 						<td class="mailDem">
-							<?php
-								echo "<center>";
-									echo $array["mailPers"];
-								echo "</center>";
-							?>
+							<center>
+  							<?php
+  								echo $array["mailPers"];
+  							?>
+              </center>
 						</td>
 						<td class="statusDem">
-							<?php
-								echo "<center>";
-									echo $array["status"];
-								echo "</center>";
-							?>
+							<center>
+  							<?php
+  								echo $array["status"];
+  							?>
+              </center>
 						</td>
 					</tr>
 					<?php
