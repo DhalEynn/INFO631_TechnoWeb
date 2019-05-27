@@ -2,19 +2,15 @@
 	if (isST())
 	{
 		$conn = connexion();
-		if(isset($_POST["action"]))
+		if (isset($_POST["validation"]))
 		{
-			unset($_POST["action"]);
-			if (isset($_POST["validation"]))
+			if($_POST["validation"] == "Valider")
 			{
-				if($_POST["validation"]== "Valider")
-				{
-					updateStatus($_POST["valeurid"], "Valide");
-				}
-				else
-				{
-					updateStatus($_POST["valeurid"], "Modifier");
-				}
+				updateStatus($_POST["valeurid"], "Valide");
+			}
+			else
+			{
+				updateStatus($_POST["valeurid"], "Modifier");
 			}
 			header("refresh:0;url=projet.php?page=3");
 			die(0);
@@ -47,7 +43,6 @@
 				echo "<br/>";
 				?>
 				<form method="post" action="projet.php?page=3">
-					<input type="hidden" name="action" value="formulaire" /></br>
 					<input type="submit" name="validation" value="Valider" />
 					<input type="hidden" name="valeurid" value="<?php echo $array["idDem"] ?>" required />
 					<input type="submit" name="validation" value="Renvoyer en modification" />
