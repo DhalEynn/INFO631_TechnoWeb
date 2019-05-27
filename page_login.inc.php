@@ -10,11 +10,10 @@
 		if(isset($_POST["checkForm"]))
 		{
 			unset($_POST["checkForm"]);
-			// Prepare the query.
+
 			$sql = $conn->prepare ("SELECT nom, travail FROM `user` where mail = ?");
-			// Execute the query.
 			$sql->execute(array($_POST["mail"]));
-			//echo $sql;
+
 			if($array = $sql->fetch(PDO::FETCH_ASSOC))
 			{
 				$_SESSION["mail"]= $_POST["mail"];
@@ -23,7 +22,7 @@
 				header("refresh:0;url=projet.php");
 				die(0);
 			}
-			echo "Aucun compte lié à cette adresse mail.</br>";
+			echo "Aucun compte n'est lié à cette adresse mail.</br>";
 		}
 		?>
 
