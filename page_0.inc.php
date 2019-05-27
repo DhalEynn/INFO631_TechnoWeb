@@ -23,6 +23,7 @@ if (isConnected())
   if (isST())
   {
     echo "<li> <a href=\"?page=3\">Valider</a> une demande acceptée par un professeur.</li>";
+    echo "<li> <a href=\"?page=demandeFinie\">Archiver</a> les demandes terminées.</li>";
   }
   echo "<li> <a href=\"?page=4\">Consulter</a> l'etat de vos demandes.</li>
   </ul>
