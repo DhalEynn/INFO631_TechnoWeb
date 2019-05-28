@@ -49,7 +49,7 @@
 					    Mot de passe :
 					  </td>
 					  <td>
-					    <input type="passeword" name="password" maxlength="50" value="" placeholder="50 caractères max" required /><br />
+					    <input type="password" name="password" maxlength="50" value="" placeholder="50 caractères max" required /><br />
 					  </td>
 					</tr>
 					<tr>

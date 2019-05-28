@@ -21,6 +21,6 @@ La matière INFO642-technoWeb sans un serveur à jour, ça ne marche pas très b
 - l'accessibilité par différentes parties prenantes (Service technique, étudiants, enseignants...)
 - visualisation de l'état d'avancement de la demande
 ### Objectifs complétés partiellement :
-### Objectifs restants :
 - la possibilité d'insérer différents types de documents (photos, devis, copie d'un panier depuis un site marchand externe...)
+### Objectifs restants :
 - la possibilité d'envoyer des mails aux personnes concernées.
