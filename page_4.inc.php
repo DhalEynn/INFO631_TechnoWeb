@@ -22,7 +22,7 @@
 						echo "</td>";
 					echo "</tr>";
 
-					echo "<tr>";
+					echo "<tr class=\"color2\">";
 						echo "<td>";
 							echo "Sujet:";
 						echo "</td><td>";
@@ -38,7 +38,7 @@
 						echo "</td>";
 					echo "</tr>";
 
-					echo "<tr>";
+					echo "<tr class=\"color2\">";
 						echo "<td>";
 							echo "Date de création:";
 						echo "</td><td>";
@@ -54,7 +54,7 @@
 						echo "</td>";
 					echo "</tr>";
 
-					echo "<tr>";
+					echo "<tr class=\"color2\">";
 						echo "<td>";
 							echo "Mail Etudiant:";
 						echo "</td><td>";
@@ -67,6 +67,14 @@
 							echo "Mail Professeur:";
 						echo "</td><td>";
 							echo $array["mailProf"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr class=\"color2\">";
+						echo "<td>";
+							echo "Status:";
+						echo "</td><td>";
+							echo $array["status"];
 						echo "</td>";
 					echo "</tr>";
 
