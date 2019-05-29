@@ -34,10 +34,5 @@ if (isConnected())
 else
 {
   echo "<a href=\"?page=login\">Connectez vous !</a></br>";
-/*
-  if( file_exists("README.md") ){
-    include("README.md");
-  }
-*/
 }
 ?>

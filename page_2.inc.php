@@ -13,7 +13,7 @@ if (isEtudiant() || isProfesseur())
 		{
 			$newStatus = "EnCours";
 		}
-		$except = updateDemande ($_POST["idDem"], $_POST["Sujet"], $_POST["Contenu"], $newStatus);
+		$except = updateDemande ($_POST["idDem"], $_POST["Sujet"], $_POST["Contenu"], $_POST["Expiration"], $newStatus);
 		if (is_null($except))
 		{
 			echo "</br></br><center>";
@@ -33,9 +33,8 @@ if (isEtudiant() || isProfesseur())
 	elseif(isset($_POST["checkForm"]))
 	{
 		unset($_POST["checkForm"]);
-		// Prepare the query.
+
 		$sql = $conn->prepare ("SELECT * FROM `demandes` WHERE idDem = ?");
-		// Execute the query.
 		$sql->execute(array($_POST["idDem"]));
 
 		if($array = $sql->fetch(PDO::FETCH_ASSOC))
@@ -56,6 +55,14 @@ if (isEtudiant() || isProfesseur())
 						</td>
 						<td>
 							<textarea class="zoneText" rows="5" cols="50" name="Contenu" form="page2" minlength="1" maxlength="10000" wrap="hard" required><?php echo $array["contenu"]; ?></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Date d'expiration :
+						</td>
+						<td>
+							<input type="date" name="Expiration" value="<?php echo $array["dateExpiration"]; ?>" min="<?php echo $array["dateCreation"]; ?>" required>
 						</td>
 					</tr>
 					<?php
@@ -95,10 +102,10 @@ if (isEtudiant() || isProfesseur())
 	{
 		if (isEtudiant())
 		{
-			$listDemandes = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers, status FROM `demandes` WHERE mailEtu = ? AND (status = \"EnCours\" OR status = \"Modifier\");");
+			$listDemandes = $conn->prepare ("SELECT idDem, sujet, dateCreation, dateExpiration, mailProf as mailPers, status FROM `demandes` WHERE mailEtu = ? AND (status = \"EnCours\" OR status = \"Modifier\");");
 		}
 		else {
-			$listDemandes = $conn->prepare ("SELECT idDem, sujet, mailEtu as mailPers, status FROM `demandes` WHERE mailProf = ? AND (status = \"EnCours\" OR status = \"Modifier\");");
+			$listDemandes = $conn->prepare ("SELECT idDem, sujet, dateCreation, dateExpiration, mailEtu as mailPers, status FROM `demandes` WHERE mailProf = ? AND (status = \"EnCours\" OR status = \"Modifier\");");
 		}
 		$listDemandes->execute(array($_SESSION["mail"]));
 
@@ -131,6 +138,12 @@ if (isEtudiant() || isProfesseur())
 						?>
 					</center>
 				</td>
+				<td class="dateDem">
+					<center>Création :</center>
+				</td>
+				<td class="dateDem">
+					<center>Expiration :</center>
+				</td>
 				<td class="statusDem">
 					<center>Status :</center>
 				</td>
@@ -140,44 +153,66 @@ if (isEtudiant() || isProfesseur())
 			<form method="post" action="projet.php?page=2">
 				<input type="hidden" name="checkForm" value="formulaire" /></br>
 				<?php
-				while($array = $listDemandes->fetch(PDO::FETCH_ASSOC))
-				{
-					if ($array["status"] == "Modifier")
+					$i = 0;
+					while($array = $listDemandes->fetch(PDO::FETCH_ASSOC))
 					{
-						echo "<tr class=\"modifier\">";
+						if ($array["status"] == "Modifier")
+						{
+							echo "<tr class=\"modifier\">";
+						}
+						else
+						{
+							if ($i % 2 != 0)
+							{
+								echo "<tr class=\"color2\">";
+							}
+							else {
+								echo "<tr>";
+							}
+						}
+						?>
+							<td class="idDem">
+								<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
+							</td>
+							<td class="sujetDem">
+								<center>
+									<?php
+										echo $array["sujet"];
+									?>
+								</center>
+							</td>
+							<td class="mailDem">
+								<center>
+									<?php
+										echo $array["mailPers"];
+									?>
+								</center>
+							</td>
+							<td class="dateDem">
+								<center>
+									<?php
+										echo $array["dateCreation"];
+									?>
+								</center>
+							</td>
+							<td class="dateDem">
+								<center>
+									<?php
+										echo $array["dateExpiration"];
+									?>
+								</center>
+							</td>
+							<td class="statusDem">
+								<center>
+									<?php
+										echo $array["status"];
+									?>
+								</center>
+							</td>
+						</tr>
+						<?php
+						$i = $i + 1;
 					}
-					else
-					{
-						echo "<tr>";
-					}
-					?>
-						<td class="idDem">
-							<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
-						</td>
-						<td class="sujetDem">
-							<center>
-								<?php
-									echo $array["sujet"];
-								?>
-							</center>
-						</td>
-						<td class="mailDem">
-							<?php
-								echo "<center>";
-									echo $array["mailPers"];
-								echo "</center>";
-							?>
-						</td>
-						<td class="statusDem">
-							<?php
-								echo "<center>";
-									echo $array["status"];
-								echo "</center>";
-							?>
-						</td>
-					</tr>
-					<?php
-				}
 				?>
 			</form>
 		</table>

@@ -10,12 +10,12 @@ if (isEtudiant())
 	if(isset($_POST["checkForm"]))
 	{
 		unset($_POST["checkForm"]);
-		if (!is_null($_POST["Sujet"]) && !is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]))
+		if (!is_null($_POST["Sujet"]) && !is_null($_POST["Contenu"]) && !is_null($_SESSION["mail"]) && !is_null($_POST["mailProf"]) && !is_null($_POST["Expiration"]) && !is_null($_POST["Creation"]) && ($_POST["Expiration"] > $_POST["Creation"]))
 		{
 			// Prepare the query.
-			$sql = $conn->prepare ("INSERT INTO `demandes` (sujet, contenu, mailEtu, mailProf, status) VALUES ( ?, ?, ?, ?, \"EnCours\")");
+			$sql = $conn->prepare ("INSERT INTO `demandes` (sujet, contenu, dateCreation, dateExpiration, mailEtu, mailProf, status) VALUES ( ?, ?, ?, ?, ?, ?, \"EnCours\")");
 			// Execute the query.
-			$sql->execute(array($_POST["Sujet"], $_POST["Contenu"], $_SESSION["mail"], $_POST["mailProf"]));
+			$sql->execute(array($_POST["Sujet"], $_POST["Contenu"], $_POST["Creation"], $_POST["Expiration"], $_SESSION["mail"], $_POST["mailProf"]));
 
 			echo "</br></br><center>Demande créée !</br></br>Vous allez être redirigés dans 1 secondes.</center>";
 			header("refresh:1;url=projet.php?page=1");
@@ -23,7 +23,7 @@ if (isEtudiant())
 		}
 		else
 		{
-			echo "<center>Un de vos paramètres est nul, veuillez réessayer.</center></br>";
+			echo "<center>Un de vos paramètres est erroné, veuillez réessayer.</center></br>";
 		}
 	}
 
@@ -60,6 +60,14 @@ if (isEtudiant())
 					</tr>
 					<tr>
 						<td>
+							Date d'expiration :
+						</td>
+						<td>
+							<input type="date" name="Expiration" value="<?php echo date("Y-m-d"); ?>" required>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							Professeur référent :
 						</td>
 						<td>
@@ -79,6 +87,7 @@ if (isEtudiant())
 						<td></td>
 						<td>
 							<input type="hidden" name="checkForm" value="votre demande aux prof">
+							<input type="hidden" name="Creation" value="<?php echo date("Y-m-d"); ?>">
 							<input type="submit" value="Envoyer la demande au professeur">
 						</td>
 					</tr>

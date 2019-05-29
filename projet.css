@@ -144,6 +144,10 @@ ul#lemenu li{
 /*    CSS pour pages 2, 3, 4    */
 /*------------------------------*/
 
+.color2{
+  background-color: #28ff48;
+}
+
 .presentation{
   font-weight: bold;
 }
@@ -156,8 +160,12 @@ ul#lemenu li{
   width: auto;
 }
 
-.sujetDem{
+.dateDem{
+  width: auto;
+}
 
+.sujetDem{
+  width: auto;
 }
 
 .mailDem{

@@ -43,13 +43,13 @@ function updateStatus ($idDem, $newStatus)
   return NULL;
 }
 
-function updateDemande ($idDem, $sujet, $contenu, $newStatus = "EnCours")
+function updateDemande ($idDem, $sujet, $contenu, $dateExpiration, $newStatus = "EnCours")
 {
   $conn = connexion();
 	try
 	{
-		$sql = $conn->prepare ("UPDATE `demandes` SET sujet = ?, contenu = ?, status = ? WHERE idDem = ?");
-		$sql->execute(array($sujet, $contenu, $newStatus, $idDem));
+		$sql = $conn->prepare ("UPDATE `demandes` SET sujet = ?, contenu = ?, dateExpiration = ?, status = ? WHERE idDem = ?");
+		$sql->execute(array($sujet, $contenu, $dateExpiration, $newStatus, $idDem));
 	}
 	catch(PDOException $e)
 	{
