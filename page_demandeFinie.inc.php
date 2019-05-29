@@ -18,25 +18,73 @@
 
   		if($array = $sql->fetch(PDO::FETCH_ASSOC))
   		{
-  			echo "id : ";
-  			echo $array["idDem"];
-  			echo "<br/>";
-  			echo "sujet : ";
-  			echo $array["sujet"];
-  			echo "<br/>";
-  			echo "contenu : ";
-  			echo $array["contenu"];
-  			echo "<br/>";
-  			echo "mail Etudiant : ";
-  			echo $array["mailEtu"];
-  			echo "<br/>";
-  			echo "mail Professeur : ";
-  			echo $array["mailProf"];
-  			echo "<br/>";
-  			echo "status : ";
-  			echo $array["status"];
-  			echo "<br/>";
-  			echo "<br/>";
+        echo "<table style=\"width=auto;\">";
+
+					echo "<tr>";
+						echo "<td>";
+							echo "id:";
+						echo "</td><td>";
+							echo $array["idDem"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr class=\"color2\">";
+						echo "<td>";
+							echo "Sujet:";
+						echo "</td><td>";
+							echo $array["sujet"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+						echo "<td>";
+							echo "Contenu:";
+						echo "</td><td>";
+							echo $array["contenu"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr class=\"color2\">";
+						echo "<td>";
+							echo "Date de création:";
+						echo "</td><td>";
+							echo $array["dateCreation"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+						echo "<td>";
+							echo "Date d'expiration:";
+						echo "</td><td>";
+							echo $array["dateExpiration"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr class=\"color2\">";
+						echo "<td>";
+							echo "Mail Etudiant:";
+						echo "</td><td>";
+							echo $array["mailEtu"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr>";
+						echo "<td>";
+							echo "Mail Professeur:";
+						echo "</td><td>";
+							echo $array["mailProf"];
+						echo "</td>";
+					echo "</tr>";
+
+					echo "<tr class=\"color2\">";
+						echo "<td>";
+							echo "Status:";
+						echo "</td><td>";
+							echo $array["status"];
+						echo "</td>";
+					echo "</tr>";
+
+				echo "</table>";
         ?>
         <form method="post" action="projet.php?page=demandeFinie">
 					<input type="hidden" name="valeurid" value="<?php echo $array["idDem"] ?>" required />
@@ -48,7 +96,7 @@
   	}
   	else
   	{
-  		$sql = $conn->prepare ("SELECT idDem, sujet, mailProf as mailPers FROM `demandes` WHERE status = \"Valide\"");
+  		$sql = $conn->prepare ("SELECT idDem, sujet, dateCreation, dateExpiration, mailProf as mailPers FROM `demandes` WHERE status = \"Valide\"");
   		$sql->execute(array());
 
   		if (is_null($sql) || $sql->rowCount() == 0)
@@ -59,47 +107,75 @@
   		{
   		?>
   		<table>
-  			<tr class="presentation">
-  				<td class="idDem">
-  					<center>id :</center>
-  				</td>
-  				<td class="sujetDem">
-  					<center>Sujet :</center>
-  				</td>
-  				<td class="mailDem">
-  					<center>Référent :</center>
-  				</td>
-  			</tr>
+        <tr class="presentation">
+					<td class="idDem">
+						<center>id :</center>
+					</td>
+					<td class="sujetDem">
+						<center>Sujet :</center>
+					</td>
+					<td class="mailDem">
+						<center>Referent :</center>
+					</td>
+					<td class="dateDem">
+						<center>Création :</center>
+					</td>
+					<td class="dateDem">
+						<center>Expiration :</center>
+					</td>
+				</tr>
   			<!-- Ecarte le nom des colonnes du contenu des colonnes resultat -->
   			<tr class="ecarteColonne"></tr> <!-- Ce n'est pas un bug, c'est une feature... -->
   			<form method="post" action="projet.php?page=demandeFinie">
-  				<input type="hidden" name="checkForm" value="formulaire" /></br>
-  				<?php
-  				while($array = $sql->fetch(PDO::FETCH_ASSOC))
-  				{
-  					?>
-  					<tr>
-  						<td class="idDem">
-  							<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
-  						</td>
-  						<td class="sujetDem">
-  							<center>
-  								<?php
-  									echo $array["sujet"];
-  								?>
-  							</center>
-  						</td>
-  						<td class="mailDem">
-                <center>
-    							<?php
-    								echo $array["mailPers"];
-    							?>
-                </center>
-  						</td>
-  					</tr>
-  					<?php
-  				}
-  				?>
+          <input type="hidden" name="checkForm" value="formulaire" /></br>
+					<?php
+						$i = 0;
+						while($array = $sql->fetch(PDO::FETCH_ASSOC))
+						{
+							if ($i % 2 != 0)
+							{
+								echo "<tr class=\"color2\">";
+							}
+							else {
+								echo "<tr>";
+							}
+							?>
+								<td class="idDem">
+									<input type="submit" name="idDem" value="<?php echo $array["idDem"] ?>" />
+								</td>
+								<td class="sujetDem">
+									<center>
+										<?php
+											echo $array["sujet"];
+										?>
+									</center>
+								</td>
+								<td class="mailDem">
+									<center>
+		  							<?php
+		  								echo $array["mailPers"];
+		  							?>
+		              </center>
+								</td>
+								<td class="dateDem">
+									<center>
+										<?php
+											echo $array["dateCreation"];
+										?>
+									</center>
+								</td>
+								<td class="dateDem">
+									<center>
+										<?php
+											echo $array["dateExpiration"];
+										?>
+									</center>
+								</td>
+							</tr>
+							<?php
+							$i = $i + 1;
+						}
+					?>
   			</form>
   		</table>
   		<?php
