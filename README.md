@@ -1,5 +1,6 @@
 # INFO642_TechnoWeb
-La matière INFO642-technoWeb sans un serveur à jour, ça ne marche pas très bien !
+
+https://github.com/DhalEynn/INFO642_TechnoWeb
 
 ## Projet : Gestion des commandes pour projets pédagogiques (projet 1)
 ### Il s'agit de concevoir et réaliser une application web qui permet de gérer des commandes d'équipements pour les besoins des étudiants. Le processus à l'école est le suivant :
